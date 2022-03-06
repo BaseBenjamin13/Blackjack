@@ -1,0 +1,13 @@
+body {
+    background-image: url("imgs/pokerbg.jpeg");
+    background-color: green;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+#hit-btn{
+    color: white;
+    background-color: black;
+    font-size: 3rem;
+}
