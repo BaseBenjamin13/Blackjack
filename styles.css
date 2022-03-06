@@ -6,8 +6,18 @@ body {
     text-align: center;
 }
 
+#wallet-div {
+    display: flex;
+    justify-content: end;
+    margin-right: 3%;
+}
+
 #hit-btn{
     color: white;
     background-color: black;
     font-size: 3rem;
 }
+
+/* #wallet-text, #wallet-num {
+
+} */
