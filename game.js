@@ -7,12 +7,12 @@
 //have the number be a number so i can subtract it when beting ✅
 
 //Bet
-//make bet button 
-//add button to js
-// make function for button that 
-// in functions call changeWallet
-// add userinput for get button
-// use input as parameters in change wallet
+//make bet button ✅
+//add button to js ✅
+// make function for button that ✅
+// in functions call changeWallet ✅
+// add userinput for bet button ✅
+// use input as parameters in changeWallet ✅ 
 
 
 
@@ -30,6 +30,7 @@
 
 const hitBtn = document.querySelector("#hit-btn");
 let walletNumEl = document.getElementById("wallet-num");
+const betBtn = document.querySelector("#bet-btn");
 
 let walletNum = 5000;
 
@@ -41,8 +42,14 @@ function changeWallet(addNum, subNum) {
     walletNumEl.innerText = walletNum;
     console.log({walletNumEl, walletNum});
 }
-changeWallet(0, 555);
 
+
+
+betBtn.addEventListener('click', changeBet);
+function changeBet(){
+    let betInput = prompt("make a bet");
+    changeWallet(0, betInput);
+}
 
 
 
