@@ -6,10 +6,16 @@ body {
     text-align: center;
 }
 
-#wallet-div {
+#wallet-div, #cards-value-div {
     display: flex;
     justify-content: end;
     margin-right: 3%;
+}
+#cards-text {
+    padding-right: 7px;
+}
+#cards-num {
+    color: red;
 }
 
 #hit-btn{
