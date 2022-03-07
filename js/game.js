@@ -1,6 +1,5 @@
 
 
-
 //put in money/start out with money  ✅
 //add wallet text   ✅
 //grab it from the dom ✅
@@ -20,8 +19,8 @@
 //use math.random to get random index/card in deck ✅
 //const deckOfCards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, userInput for ace, 11 or 1]; ✅
 //if user gets ace then ask for user input to pick 11 or 1 ✅ 
-// make ace Input a number not a string which it is now,
-// Number. does not work on aceInput or im using it wrong
+// make ace Input a number not a string which it is now, ✅
+// Number. does not work on aceInput or im using it wrong, used parseInt found on stackoverflow ✅
 
 
 
@@ -31,22 +30,21 @@
 
 
 
-//console.log("linked");
+//learned how to use module on youtube from Web Dev Simplifield.
+import changeBet from "/js/betting.js";
 
 const hitBtn = document.querySelector("#hit-btn");
 let walletNumEl = document.getElementById("wallet-num");
 const betBtn = document.querySelector("#bet-btn");
 
 let walletNum = 5000;
-let minBet = 50;
-let maxBet = 500;
 let usersCardsTotalValue = 0;
 let aceInput;
 let deckOfCards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, aceInput];
 
 
 //add or subtract from wallet function.
-function changeWallet(addNum, subNum) {
+export default function changeWallet(addNum, subNum) {
     console.log({walletNumEl, walletNum});
     walletNum -= subNum;
     walletNum += addNum;
@@ -57,16 +55,7 @@ function changeWallet(addNum, subNum) {
 
 //Making a bet.
 betBtn.addEventListener('click', changeBet);
-function changeBet(){
-    let betInput = prompt("make a bet between $50-$500");
-    if (betInput >= minBet && betInput <= maxBet) {
-        changeWallet(0, betInput);
-    } else if (betInput < minBet) {
-        alert("You'r bet is too low. \n\n\n Try Again!");
-    } else if (betInput > maxBet) {
-        alert("You'r bet is too high. \n\n\n Try Again!");
-    }
-}
+
 
 
 let usersCards = 0;
@@ -79,9 +68,12 @@ function getCards(){
     let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
     if (randomCard == deckOfCards[13]) {
         aceInput = prompt("You got an Ace, how do you want to use it. \n\n             11 or 1");
+        //found parseInt on stackoverflow.
+        aceInput = parseInt(aceInput);
         randomCard = aceInput;
         // let num = aceInput + usersCards;
         // console.log(num);
     }
     console.log(randomCard);
 }
+
