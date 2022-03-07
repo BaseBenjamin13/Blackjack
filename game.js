@@ -13,8 +13,8 @@
 // in functions call changeWallet ✅
 // add userinput for bet button ✅
 // use input as parameters in changeWallet ✅ 
-
-
+// make minimum and maximum bet ✅
+// error message if min or max is not met ✅
 
 //deck of cards will be an array 
 //use math.random to get random index/card in deck
@@ -33,8 +33,10 @@ let walletNumEl = document.getElementById("wallet-num");
 const betBtn = document.querySelector("#bet-btn");
 
 let walletNum = 5000;
+let minBet = 50;
+let maxBet = 500;
 
-//add or subtract from wallet function
+//add or subtract from wallet function.
 function changeWallet(addNum, subNum) {
     console.log({walletNumEl, walletNum});
     walletNum -= subNum;
@@ -44,11 +46,17 @@ function changeWallet(addNum, subNum) {
 }
 
 
-
+//Making a bet.
 betBtn.addEventListener('click', changeBet);
 function changeBet(){
-    let betInput = prompt("make a bet");
-    changeWallet(0, betInput);
+    let betInput = prompt("make a bet between $50-$500");
+    if (betInput >= minBet && betInput <= maxBet) {
+        changeWallet(0, betInput);
+    } else if (betInput < minBet) {
+        alert("You'r bet is too low. \n\n\n Try Again!");
+    } else if (betInput > maxBet) {
+        alert("You'r bet is too high. \n\n\n Try Again!");
+    }
 }
 
 
