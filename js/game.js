@@ -28,6 +28,11 @@
 // when hit button is clicked add random card to totalvalue. ✅
 // when total cards is below 10 then color red, above 10 color yellow, above 17 green over 21 red. ✅
 
+// add money
+// create button to add money ✅
+// button takes in input from user ✅
+// add input to wallet using changeWallet() ✅
+
 //dealer geting cards when pass button is clicked
 //dealer gets cards if value of cards is below users value of cards
 //dealer does NOT get cards if value is above users value or dealers cards are >= 21 
@@ -41,11 +46,13 @@ const hitBtn = document.querySelector("#hit-btn");
 let walletNumEl = document.getElementById("wallet-num");
 const betBtn = document.querySelector("#bet-btn");
 const usersCardsTotalValueEl = document.getElementById("cards-num");
+const addMoneyBtn = document.querySelector("#add-money-btn");
 
 let walletNum = 5000;
 let usersCardsTotalValue = 0;
 let aceInput;
 let deckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, aceInput];
+let addMoneyInput;
 
 
 //add or subtract from wallet function.
@@ -60,7 +67,6 @@ export default function changeWallet(addNum, subNum) {
 
 //Making a bet.
 betBtn.addEventListener('click', changeBet);
-
 
 
 let usersCards = 0;
@@ -94,3 +100,11 @@ function getCards(){
     }
 }
 
+
+//Adding money
+addMoneyBtn.addEventListener("click", addMoney) 
+function addMoney() {
+    addMoneyInput = prompt("How much money would you like to add \n Just enter a number");
+    addMoneyInput = parseInt(addMoneyInput);
+    changeWallet(addMoneyInput, 0);
+}
