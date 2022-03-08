@@ -28,10 +28,16 @@
 // when hit button is clicked add random card to totalvalue. ✅
 // when total cards is below 10 then color red, above 10 color yellow, above 17 green over 21 red. ✅
 
-// add money
+// add money ✅
 // create button to add money ✅
 // button takes in input from user ✅
 // add input to wallet using changeWallet() ✅
+
+// add pass button. ✅
+// add dealers total vaule. ✅
+// pass,hit button changes color with users cards. ✅
+// use while loop, dealer gets cards until it wins or goes over 21. ✅
+// users loses if dealers cards are above users cards and below 22.
 
 //dealer geting cards when pass button is clicked
 //dealer gets cards if value of cards is below users value of cards
@@ -47,9 +53,13 @@ let walletNumEl = document.getElementById("wallet-num");
 const betBtn = document.querySelector("#bet-btn");
 const usersCardsTotalValueEl = document.getElementById("cards-num");
 const addMoneyBtn = document.querySelector("#add-money-btn");
+const passBtn = document.querySelector("#pass-btn");
+const dealersCardsTotalValueEl = document.getElementById("dealer-num");
+
 
 let walletNum = 5000;
 let usersCardsTotalValue = 0;
+let dealersCardsTotalValue = 0;
 let aceInput;
 let deckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, aceInput];
 let addMoneyInput;
@@ -93,10 +103,16 @@ function getCards(){
     //changing color of total cards value.
     if (usersCardsTotalValue > 10 && usersCardsTotalValue < 17) {
         usersCardsTotalValueEl.style.color = 'yellow';
+        passBtn.style.color = 'yellow';
+        hitBtn.style.color = 'yellow';
     } else if (usersCardsTotalValue >= 17 && usersCardsTotalValue < 22) {
-        usersCardsTotalValueEl.style.color = 'green';
+        usersCardsTotalValueEl.style.color = 'rgb(0, 220, 0)';
+        passBtn.style.color = 'rgb(0, 220, 0)';
+        hitBtn.style.color = 'red';
     } else {
         usersCardsTotalValueEl.style.color = 'red';
+        passBtn.style.color = 'red';
+        hitBtn.style.color = 'rgb(0, 220, 0)';
     }
 }
 
@@ -107,4 +123,24 @@ function addMoney() {
     addMoneyInput = prompt("How much money would you like to add \n Just enter a number");
     addMoneyInput = parseInt(addMoneyInput);
     changeWallet(addMoneyInput, 0);
+}
+
+// pass Button, dealer gets cards
+passBtn.addEventListener('click', passToDealer);
+function passToDealer(){
+    console.log("pass");
+    while (dealersCardsTotalValue < usersCardsTotalValue && dealersCardsTotalValue < 22 || dealersCardsTotalValue === 21){
+        let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
+        console.log({randomCard});
+        dealersCardsTotalValue += randomCard;
+        dealersCardsTotalValueEl.innerText = dealersCardsTotalValue;
+        console.log({dealersCardsTotalValue});
+    } if (dealersCardsTotalValue > 21){
+        alert("you WON!");
+    } else if (dealersCardsTotalValue === usersCardsTotalValue){
+        alert("It's a TIE!");
+    }else {
+        alert("You Lose! Sorry, but your a loser 🥲.")
+    }
+    
 }
