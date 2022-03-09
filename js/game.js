@@ -37,11 +37,15 @@
 // add dealers total vaule. ✅
 // pass,hit button changes color with users cards. ✅
 // use while loop, dealer gets cards until it wins or goes over 21. ✅
-// users loses if dealers cards are above users cards and below 22.
+// users loses if dealers cards are above users cards and below 22. ✅
 
-//dealer geting cards when pass button is clicked
-//dealer gets cards if value of cards is below users value of cards
-//dealer does NOT get cards if value is above users value or dealers cards are >= 21 
+//dealer geting cards when pass button is clicked ✅
+//dealer gets cards if value of cards is below users value of cards ✅
+//dealer does NOT get cards if value is above users value or dealers cards are >= 21 ✅
+
+//display Bet; ✅
+// if user wins add bet back into wallet; ✅
+// if user loses bet = 0;
 
 
 
@@ -55,6 +59,7 @@ const usersCardsTotalValueEl = document.getElementById("cards-num");
 const addMoneyBtn = document.querySelector("#add-money-btn");
 const passBtn = document.querySelector("#pass-btn");
 const dealersCardsTotalValueEl = document.getElementById("dealer-num");
+let currentBetEl = document.getElementById("bet-num");
 
 
 let walletNum = 5000;
@@ -135,12 +140,17 @@ function passToDealer(){
         dealersCardsTotalValue += randomCard;
         dealersCardsTotalValueEl.innerText = dealersCardsTotalValue;
         console.log({dealersCardsTotalValue});
-    } if (dealersCardsTotalValue > 21){
+    } if (dealersCardsTotalValue > 2){
         alert("you WON!");
+        let userWon = true;
+        // this is not prefered, upgrade this change wallet
+        changeWallet(parseInt(currentBetEl.innerText), 0)
     } else if (dealersCardsTotalValue === usersCardsTotalValue){
         alert("It's a TIE!");
+        let userWon = true;
     }else {
         alert("You Lose! Sorry, but your a loser 🥲.")
+        let userWon = false;
     }
     
 }
