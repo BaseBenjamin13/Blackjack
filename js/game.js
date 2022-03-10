@@ -51,9 +51,13 @@
 // if users cards go over 21 user loses; ✅
 // user can only "Hit" if min bet is met; ✅
 
-// start game by dealing 2 cards, probably want to do it in the bet function;
+// Mar 10th
+// start game by dealing 2 cards, probably want to do it in the bet function; ✅
 // deck of cards into an array of objects so i can grab name and suit;
 // reset cards after win/lose for dealer and user;
+
+// deck of cards into an array of objects for each card;
+// display what cards you got;
 
 
 
@@ -98,7 +102,7 @@ let usersCards = 0;
 
 //hit button, adding cards to users deck
 hitBtn.addEventListener('click', getCards);
-function getCards(){
+export function getCards(){
     //makes it so if theres no bet, hit button won't work
     if (parseInt(betInput) >= 50 && parseInt(betInput) <= 500) {
 

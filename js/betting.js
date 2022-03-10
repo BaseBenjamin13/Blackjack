@@ -1,6 +1,6 @@
 
 
-import changeWallet from "../js/game.js";
+import changeWallet, {getCards}from "../js/game.js";
 
 
 const currentBetEl = document.getElementById("bet-num");
@@ -16,6 +16,11 @@ export default function changeBet(){
     if (betInput >= minBet && betInput <= maxBet) {
         changeWallet(0, betInput);
         currentBetEl.innerText = betInput;
+        // starts the game off by dealing too cards
+        for (let i = 0; i < 2; i++) {
+            getCards();
+            console.log("got card");
+        }
     } else if (betInput < minBet) {
         alert("You'r bet is too low. \n\n\n Try Again!");
     } else if (betInput > maxBet) {
