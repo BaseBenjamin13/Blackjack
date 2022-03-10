@@ -45,7 +45,16 @@
 
 //display Bet; ✅
 // if user wins add bet back into wallet; ✅
-// if user loses bet = 0;
+
+// if user wins or loses bet = 0; ✅
+// fix ace when dealer gets it, right now its just a NaN or unkown; ✅
+// if users cards go over 21 user loses; ✅
+// make userWon boolean with if statements making it true or false,
+// use userWon in functions instead of long if statements;
+
+// start game by dealing 2 cards, probably want to do it in the bet function;
+// deck of cards into an array of objects so i can grab name and suit;
+// reset cards after win/lose for dealer and user;
 
 
 
@@ -68,6 +77,7 @@ let dealersCardsTotalValue = 0;
 let aceInput;
 let deckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, aceInput];
 let addMoneyInput;
+let userWon;
 
 
 //add or subtract from wallet function.
@@ -119,6 +129,13 @@ function getCards(){
         passBtn.style.color = 'red';
         hitBtn.style.color = 'rgb(0, 220, 0)';
     }
+    //user goes over 21:
+    if (usersCardsTotalValue > 21) {
+        alert("You Lose! Sorry, but your a loser 🥲.")
+        let userWon = false;
+        currentBetEl.innerText = '0';
+    }
+
 }
 
 
@@ -130,27 +147,56 @@ function addMoney() {
     changeWallet(addMoneyInput, 0);
 }
 
+
+
+
 // pass Button, dealer gets cards
 passBtn.addEventListener('click', passToDealer);
 function passToDealer(){
     console.log("pass");
-    while (dealersCardsTotalValue < usersCardsTotalValue && dealersCardsTotalValue < 22 || dealersCardsTotalValue === 21){
+
+    while (dealersCardsTotalValue < usersCardsTotalValue && dealersCardsTotalValue < 22 
+        || dealersCardsTotalValue === 21){
+
+
+            if (dealersCardsTotalValue < 11) {
+                deckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
+                
+            } 
+            if (dealersCardsTotalValue > 10) {
+                deckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1];
+                
+            }
+        
         let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
         console.log({randomCard});
+        console.log({dealersCardsTotalValue});
         dealersCardsTotalValue += randomCard;
         dealersCardsTotalValueEl.innerText = dealersCardsTotalValue;
-        console.log({dealersCardsTotalValue});
-    } if (dealersCardsTotalValue > 2){
+
+    } if (dealersCardsTotalValue > 21 && usersCardsTotalValue < 22){
         alert("you WON!");
-        let userWon = true;
+        userWon = true;
         // this is not prefered, upgrade this change wallet
         changeWallet(parseInt(currentBetEl.innerText), 0)
-    } else if (dealersCardsTotalValue === usersCardsTotalValue){
+        return currentBetEl.innerText = '0';
+    } else if (dealersCardsTotalValue === usersCardsTotalValue && usersCardsTotalValue < 22){
         alert("It's a TIE!");
-        let userWon = true;
+        userWon = true;
+        changeWallet(parseInt(currentBetEl.innerText * 0.5), 0)
+        return currentBetEl.innerText = '0';
     }else {
         alert("You Lose! Sorry, but your a loser 🥲.")
-        let userWon = false;
+        userWon = false;
+        return currentBetEl.innerText = '0';
     }
     
 }
+
+
+
+
+
+
+
+
