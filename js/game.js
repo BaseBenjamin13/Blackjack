@@ -49,8 +49,7 @@
 // if user wins or loses bet = 0; ✅
 // fix ace when dealer gets it, right now its just a NaN or unkown; ✅
 // if users cards go over 21 user loses; ✅
-// make userWon boolean with if statements making it true or false,
-// use userWon in functions instead of long if statements;
+// user can only "Hit" if min bet is met; ✅
 
 // start game by dealing 2 cards, probably want to do it in the bet function;
 // deck of cards into an array of objects so i can grab name and suit;
@@ -59,7 +58,8 @@
 
 
 //learned how to use module on youtube from Web Dev Simplifield.
-import changeBet from "/js/betting.js";
+import changeBet, {betInput} from "/js/betting.js";
+
 
 const hitBtn = document.querySelector("#hit-btn");
 let walletNumEl = document.getElementById("wallet-num");
@@ -99,43 +99,49 @@ let usersCards = 0;
 //hit button, adding cards to users deck
 hitBtn.addEventListener('click', getCards);
 function getCards(){
-    usersCards++;
-    console.log({usersCards});
-    let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
-    if (randomCard == deckOfCards[12]) {
-        aceInput = prompt("You got an Ace, how do you want to use it. \n\n             11 or 1");
-        //found parseInt on stackoverflow.
-        aceInput = parseInt(aceInput);
-        randomCard = aceInput;
-        // let num = aceInput + usersCards;
-        // console.log(num);
-    }
-    //adding total value of cards the html El.
-    usersCardsTotalValue += randomCard;
-    console.log(usersCardsTotalValue);
-    usersCardsTotalValueEl.innerText = usersCardsTotalValue;
-    console.log(randomCard);
-    //changing color of total cards value.
-    if (usersCardsTotalValue > 10 && usersCardsTotalValue < 17) {
-        usersCardsTotalValueEl.style.color = 'yellow';
-        passBtn.style.color = 'yellow';
-        hitBtn.style.color = 'yellow';
-    } else if (usersCardsTotalValue >= 17 && usersCardsTotalValue < 22) {
-        usersCardsTotalValueEl.style.color = 'rgb(0, 220, 0)';
-        passBtn.style.color = 'rgb(0, 220, 0)';
-        hitBtn.style.color = 'red';
-    } else {
-        usersCardsTotalValueEl.style.color = 'red';
-        passBtn.style.color = 'red';
-        hitBtn.style.color = 'rgb(0, 220, 0)';
-    }
-    //user goes over 21:
-    if (usersCardsTotalValue > 21) {
-        alert("You Lose! Sorry, but your a loser 🥲.")
-        let userWon = false;
-        currentBetEl.innerText = '0';
-    }
+    //makes it so if theres no bet, hit button won't work
+    if (parseInt(betInput) >= 50 && parseInt(betInput) <= 500) {
 
+        usersCards++;
+        console.log({usersCards});
+        let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
+        if (randomCard == deckOfCards[12]) {
+            aceInput = prompt("You got an Ace, how do you want to use it. \n\n             11 or 1");
+            //found parseInt on stackoverflow.
+            aceInput = parseInt(aceInput);
+            randomCard = aceInput;
+            // let num = aceInput + usersCards;
+            // console.log(num);
+        }
+        //adding total value of cards the html El.
+        usersCardsTotalValue += randomCard;
+        console.log(usersCardsTotalValue);
+        usersCardsTotalValueEl.innerText = usersCardsTotalValue;
+        console.log(randomCard);
+        //changing color of total cards value.
+        if (usersCardsTotalValue > 10 && usersCardsTotalValue < 17) {
+            usersCardsTotalValueEl.style.color = 'yellow';
+            passBtn.style.color = 'yellow';
+            hitBtn.style.color = 'yellow';
+        } else if (usersCardsTotalValue >= 17 && usersCardsTotalValue < 22) {
+            usersCardsTotalValueEl.style.color = 'rgb(0, 220, 0)';
+            passBtn.style.color = 'rgb(0, 220, 0)';
+            hitBtn.style.color = 'red';
+        } else {
+            usersCardsTotalValueEl.style.color = 'red';
+            passBtn.style.color = 'red';
+            hitBtn.style.color = 'rgb(0, 220, 0)';
+        }
+        //user goes over 21:
+        if (usersCardsTotalValue > 21) {
+            alert("You Lose! Sorry, but your a loser 🥲.")
+            let userWon = false;
+            currentBetEl.innerText = '0';
+        }
+
+
+    }
+    
 }
 
 

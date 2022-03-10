@@ -7,10 +7,11 @@ const currentBetEl = document.getElementById("bet-num");
 
 let minBet = 50;
 let maxBet = 500;
+export let betInput;
 
 
 export default function changeBet(){
-    let betInput = prompt("make a bet between $50-$500");
+    betInput = prompt("make a bet between $50-$500");
     console.log(betInput);
     if (betInput >= minBet && betInput <= maxBet) {
         changeWallet(0, betInput);
