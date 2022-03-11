@@ -53,10 +53,10 @@
 
 // Mar 10th
 // start game by dealing 2 cards, probably want to do it in the bet function; ✅
-// deck of cards into an array of objects so i can grab name and suit;
-// reset cards after win/lose for dealer and user;
+// deck of cards into an array of objects so i can grab name and suit; ✅
+// reset cards after win/lose for dealer and user; ✅
 
-// deck of cards into an array of objects for each card;
+//put all deck of cards and resetCards into new cards.js file;
 // display what cards you got;
 
 
@@ -79,7 +79,75 @@ let walletNum = 5000;
 let usersCardsTotalValue = 0;
 let dealersCardsTotalValue = 0;
 let aceInput;
-let deckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, aceInput];
+// let deckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, aceInput];
+let deckOfCards = [
+    //2's
+    {name: '2', suit: 'Hearts', num: 2},
+    {name: '2', suit: 'Clubs', num: 2},
+    {name: '2', suit: 'Diamonds', num: 2},
+    {name: '2', suit: 'Spades', num: 2},
+    //3's
+    {name: '3', suit: 'Hearts', num: 3},
+    {name: '3', suit: 'Clubs', num: 3},
+    {name: '3', suit: 'Diamonds', num: 3},
+    {name: '3', suit: 'Spades', num: 3},
+    //4's
+    {name: '4', suit: 'Hearts', num: 4},
+    {name: '4', suit: 'Clubs', num: 4},
+    {name: '4', suit: 'Diamonds', num: 4},
+    {name: '4', suit: 'Spades', num: 4},
+    //5's
+    {name: '5', suit: 'Hearts', num: 5},
+    {name: '5', suit: 'Clubs', num: 5},
+    {name: '5', suit: 'Diamonds', num: 5},
+    {name: '5', suit: 'Spades', num: 5},
+    //6's
+    {name: '6', suit: 'Hearts', num: 6},
+    {name: '6', suit: 'Clubs', num: 6},
+    {name: '6', suit: 'Diamonds', num: 6},
+    {name: '6', suit: 'Spades', num: 6},
+    //7's
+    {name: '7', suit: 'Hearts', num: 7},
+    {name: '7', suit: 'Clubs', num: 7},
+    {name: '7', suit: 'Diamonds', num: 7},
+    {name: '7', suit: 'Spades', num: 7},
+    //8's
+    {name: '8', suit: 'Hearts', num: 8},
+    {name: '8', suit: 'Clubs', num: 8},
+    {name: '8', suit: 'Diamonds', num: 8},
+    {name: '8', suit: 'Spades', num: 8},
+    //9's
+    {name: '9', suit: 'Hearts', num: 9},
+    {name: '9', suit: 'Clubs', num: 9},
+    {name: '9', suit: 'Diamonds', num: 9},
+    {name: '9', suit: 'Spades', num: 9},
+    //10's
+    {name: '10', suit: 'Hearts', num: 10}, 
+    {name: '10', suit: 'Clubs', num: 10},
+    {name: '10', suit: 'Diamonds', num: 10},
+    {name: '10', suit: 'Spades', num: 10},
+    //jack's
+    {name: 'Jack', suit: 'Hearts', num: 10},
+    {name: 'Jack', suit: 'Clubs', num: 10},
+    {name: 'Jack', suit: 'Diamonds', num: 10},
+    {name: 'Jack', suit: 'Spades', num: 10},
+    //Queen's
+    {name: 'Queen', suit: 'Hearts', num: 10},
+    {name: 'Queen', suit: 'Clubs', num: 10},
+    {name: 'Queen', suit: 'Diamonds', num: 10},
+    {name: 'Queen', suit: 'Spades', num: 10},
+    //King's
+    {name: 'King', suit: 'Hearts', num: 10},
+    {name: 'King', suit: 'Hearts', num: 10},
+    {name: 'King', suit: 'Hearts', num: 10},
+    {name: 'King', suit: 'Hearts', num: 10},
+    //ace's
+    {name: 'Ace', suit: 'Hearts', num: aceInput},
+    {name: 'Ace', suit: 'Clubs', num: aceInput},
+    {name: 'Ace', suit: 'Diamonds', num: aceInput},
+    {name: 'Ace', suit: 'Spades', num: aceInput},
+];
+
 let addMoneyInput;
 let userWon;
 
@@ -109,16 +177,16 @@ export function getCards(){
         usersCards++;
         console.log({usersCards});
         let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
-        if (randomCard == deckOfCards[12]) {
+        if (randomCard.name === 'Ace') {
             aceInput = prompt("You got an Ace, how do you want to use it. \n\n             11 or 1");
             //found parseInt on stackoverflow.
             aceInput = parseInt(aceInput);
-            randomCard = aceInput;
+            randomCard.num = aceInput;
             // let num = aceInput + usersCards;
             // console.log(num);
         }
         //adding total value of cards the html El.
-        usersCardsTotalValue += randomCard;
+        usersCardsTotalValue += randomCard.num;
         console.log(usersCardsTotalValue);
         usersCardsTotalValueEl.innerText = usersCardsTotalValue;
         console.log(randomCard);
@@ -164,21 +232,21 @@ function addMoney() {
 passBtn.addEventListener('click', passToDealer);
 function passToDealer(){
     console.log("pass");
-
+    let dealersDeckOfCards;
     while (dealersCardsTotalValue < usersCardsTotalValue && dealersCardsTotalValue < 22 
         || dealersCardsTotalValue === 21){
 
 
             if (dealersCardsTotalValue < 11) {
-                deckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
+                dealersDeckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
                 
             } 
             if (dealersCardsTotalValue > 10) {
-                deckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1];
+                dealersDeckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1];
                 
             }
         
-        let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
+        let randomCard = dealersDeckOfCards[Math.floor(Math.random() * dealersDeckOfCards.length)];
         console.log({randomCard});
         console.log({dealersCardsTotalValue});
         dealersCardsTotalValue += randomCard;
@@ -188,21 +256,29 @@ function passToDealer(){
         alert("you WON!");
         userWon = true;
         // this is not prefered, upgrade this change wallet
-        changeWallet(parseInt(currentBetEl.innerText), 0)
+        changeWallet(parseInt(currentBetEl.innerText), 0);
         return currentBetEl.innerText = '0';
     } else if (dealersCardsTotalValue === usersCardsTotalValue && usersCardsTotalValue < 22){
         alert("It's a TIE!");
         userWon = true;
-        changeWallet(parseInt(currentBetEl.innerText * 0.5), 0)
+        changeWallet(parseInt(currentBetEl.innerText * 0.5), 0);
         return currentBetEl.innerText = '0';
     }else {
-        alert("You Lose! Sorry, but your a loser 🥲.")
+        alert("You Lose! Sorry, but your a loser 🥲.");
         userWon = false;
+
         return currentBetEl.innerText = '0';
     }
     
+    
 }
 
+export function resetCards() {
+    usersCardsTotalValue = 0;
+    usersCardsTotalValueEl.innerText = usersCardsTotalValue;
+    dealersCardsTotalValue = 0;
+    dealersCardsTotalValueEl.innerText = dealersCardsTotalValue;
+}
 
 
 

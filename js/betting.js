@@ -1,6 +1,6 @@
 
 
-import changeWallet, {getCards}from "../js/game.js";
+import changeWallet, {getCards, resetCards}from "../js/game.js";
 
 
 const currentBetEl = document.getElementById("bet-num");
@@ -10,7 +10,10 @@ let maxBet = 500;
 export let betInput;
 
 
+
+
 export default function changeBet(){
+    resetCards();
     betInput = prompt("make a bet between $50-$500");
     console.log(betInput);
     if (betInput >= minBet && betInput <= maxBet) {
@@ -26,4 +29,5 @@ export default function changeBet(){
     } else if (betInput > maxBet) {
         alert("You'r bet is too high. \n\n\n Try Again!");
     }
+    
 }
