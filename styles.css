@@ -20,6 +20,33 @@ body {
     display: flex;
     justify-content: center;
 }
+
+#right-card-div {
+    display: flex;
+    justify-content: right;
+}
+#left-card-div {
+    display: flex;
+    justify-content: left;
+}
+.cards {
+    width: 10vw;
+    height: 20vh;
+}
+#right-cards {
+    background-color: crimson;
+    margin: 1%;
+}
+#left {
+    background-color: aqua;
+    margin: 1%;
+}
+/* #mid-left {
+    
+} */
+
+
+
 #dealers-recent {
     display: flex;
     justify-content: start;
