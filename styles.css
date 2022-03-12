@@ -29,17 +29,22 @@ body {
     display: flex;
     justify-content: left;
 }
-.cards {
-    width: 10vw;
+
+.right-cards {
+    margin: 1%;
+    width: 8.5vw;
     height: 20vh;
+    background-size:contain;
+    background-repeat: no-repeat;
 }
-#right-cards {
-    background-color: crimson;
+
+.left {
+    /* background-color: aqua; */
     margin: 1%;
-}
-#left {
-    background-color: aqua;
-    margin: 1%;
+    width: 8.5vw;
+    height: 20vh;
+    background-size:contain;
+    background-repeat: no-repeat;
 }
 /* #mid-left {
     

@@ -18,6 +18,16 @@ let currentBetEl = document.getElementById("bet-num");
 let usersMostRecentCardEl = document.getElementById("users-recent-card");
 let dealersMostRecentCardEl = document.getElementById("dealers-recent-card");
 
+let rightCard = document.getElementById("right-card");
+let rightRightCard = document.getElementById("right-right-card");
+let leftCard = document.getElementById("left-card");
+let leftLeftCard = document.getElementById("left-left-card");
+rightCard.style.backgroundImage = 'url("../imgs/PNG-cards-1.3/2_of_clubs.png")';
+rightRightCard.style.backgroundImage = 'url("../imgs/PNG-cards-1.3/ace_of_clubs.png")';
+leftCard.style.backgroundImage = 'url("../imgs/PNG-cards-1.3/2_of_clubs.png")';
+leftLeftCard.style.backgroundImage = 'url("../imgs/PNG-cards-1.3/ace_of_clubs.png")';
+
+
 let walletNum = 5000;
 let usersCardsTotalValue = 0;
 let dealersCardsTotalValue = 0;

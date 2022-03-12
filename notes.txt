@@ -63,5 +63,9 @@
 
 // Mar 12th.
 // add notes too notes.txt. ✅
-// make divs to display cards. ✅
-// set background image.
+// make divs to display cards; ✅
+// set background image; ✅
+
+//Mar 13th.
+// add all imgs into deck of cards;
+// assign most recent randomcard.img into cards div background;
