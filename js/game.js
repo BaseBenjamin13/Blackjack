@@ -19,7 +19,7 @@
 //use math.random to get random index/card in deck ✅
 //const deckOfCards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, userInput for ace, 11 or 1]; ✅
 //if user gets ace then ask for user input to pick 11 or 1 ✅ 
-// make ace Input a number not a string which it is now, ✅
+// ake ace Input a number not a string which it is now, ✅
 // Number. does not work on aceInput or im using it wrong, used parseInt found on stackoverflow ✅
 
 //users cards total value. ✅
@@ -51,102 +51,40 @@
 // if users cards go over 21 user loses; ✅
 // user can only "Hit" if min bet is met; ✅
 
-// Mar 10th
+// Mar 10th.
 // start game by dealing 2 cards, probably want to do it in the bet function; ✅
 // deck of cards into an array of objects so i can grab name and suit; ✅
 // reset cards after win/lose for dealer and user; ✅
 
-//put all deck of cards and resetCards into new cards.js file;
-// display what cards you got;
+// Mar 11th.
+//put users deck of cards into new cards.js file; ✅
+//put dealers decks of cards into new cards.js file; ✅
+// make dealers cards an array of objects; ✅
+// display what cards you got; ✅
 
 
 
 //learned how to use module on youtube from Web Dev Simplifield.
 import changeBet, {betInput} from "/js/betting.js";
 
+import { deckOfCards, dealersDeckOfCards1, dealersDeckOfCards11 } from "../js/cards.js";
 
 const hitBtn = document.querySelector("#hit-btn");
 let walletNumEl = document.getElementById("wallet-num");
 const betBtn = document.querySelector("#bet-btn");
-const usersCardsTotalValueEl = document.getElementById("cards-num");
+let usersCardsTotalValueEl = document.getElementById("cards-num");
 const addMoneyBtn = document.querySelector("#add-money-btn");
 const passBtn = document.querySelector("#pass-btn");
-const dealersCardsTotalValueEl = document.getElementById("dealer-num");
+let dealersCardsTotalValueEl = document.getElementById("dealer-num");
 let currentBetEl = document.getElementById("bet-num");
-
+let usersMostRecentCardEl = document.getElementById("users-recent-card");
+let dealersMostRecentCardEl = document.getElementById("dealers-recent-card");
 
 let walletNum = 5000;
 let usersCardsTotalValue = 0;
 let dealersCardsTotalValue = 0;
 let aceInput;
-// let deckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, aceInput];
-let deckOfCards = [
-    //2's
-    {name: '2', suit: 'Hearts', num: 2},
-    {name: '2', suit: 'Clubs', num: 2},
-    {name: '2', suit: 'Diamonds', num: 2},
-    {name: '2', suit: 'Spades', num: 2},
-    //3's
-    {name: '3', suit: 'Hearts', num: 3},
-    {name: '3', suit: 'Clubs', num: 3},
-    {name: '3', suit: 'Diamonds', num: 3},
-    {name: '3', suit: 'Spades', num: 3},
-    //4's
-    {name: '4', suit: 'Hearts', num: 4},
-    {name: '4', suit: 'Clubs', num: 4},
-    {name: '4', suit: 'Diamonds', num: 4},
-    {name: '4', suit: 'Spades', num: 4},
-    //5's
-    {name: '5', suit: 'Hearts', num: 5},
-    {name: '5', suit: 'Clubs', num: 5},
-    {name: '5', suit: 'Diamonds', num: 5},
-    {name: '5', suit: 'Spades', num: 5},
-    //6's
-    {name: '6', suit: 'Hearts', num: 6},
-    {name: '6', suit: 'Clubs', num: 6},
-    {name: '6', suit: 'Diamonds', num: 6},
-    {name: '6', suit: 'Spades', num: 6},
-    //7's
-    {name: '7', suit: 'Hearts', num: 7},
-    {name: '7', suit: 'Clubs', num: 7},
-    {name: '7', suit: 'Diamonds', num: 7},
-    {name: '7', suit: 'Spades', num: 7},
-    //8's
-    {name: '8', suit: 'Hearts', num: 8},
-    {name: '8', suit: 'Clubs', num: 8},
-    {name: '8', suit: 'Diamonds', num: 8},
-    {name: '8', suit: 'Spades', num: 8},
-    //9's
-    {name: '9', suit: 'Hearts', num: 9},
-    {name: '9', suit: 'Clubs', num: 9},
-    {name: '9', suit: 'Diamonds', num: 9},
-    {name: '9', suit: 'Spades', num: 9},
-    //10's
-    {name: '10', suit: 'Hearts', num: 10}, 
-    {name: '10', suit: 'Clubs', num: 10},
-    {name: '10', suit: 'Diamonds', num: 10},
-    {name: '10', suit: 'Spades', num: 10},
-    //jack's
-    {name: 'Jack', suit: 'Hearts', num: 10},
-    {name: 'Jack', suit: 'Clubs', num: 10},
-    {name: 'Jack', suit: 'Diamonds', num: 10},
-    {name: 'Jack', suit: 'Spades', num: 10},
-    //Queen's
-    {name: 'Queen', suit: 'Hearts', num: 10},
-    {name: 'Queen', suit: 'Clubs', num: 10},
-    {name: 'Queen', suit: 'Diamonds', num: 10},
-    {name: 'Queen', suit: 'Spades', num: 10},
-    //King's
-    {name: 'King', suit: 'Hearts', num: 10},
-    {name: 'King', suit: 'Hearts', num: 10},
-    {name: 'King', suit: 'Hearts', num: 10},
-    {name: 'King', suit: 'Hearts', num: 10},
-    //ace's
-    {name: 'Ace', suit: 'Hearts', num: aceInput},
-    {name: 'Ace', suit: 'Clubs', num: aceInput},
-    {name: 'Ace', suit: 'Diamonds', num: aceInput},
-    {name: 'Ace', suit: 'Spades', num: aceInput},
-];
+
 
 let addMoneyInput;
 let userWon;
@@ -190,6 +128,8 @@ export function getCards(){
         console.log(usersCardsTotalValue);
         usersCardsTotalValueEl.innerText = usersCardsTotalValue;
         console.log(randomCard);
+        usersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
+        console.log({usersMostRecentCardEl});
         //changing color of total cards value.
         if (usersCardsTotalValue > 10 && usersCardsTotalValue < 17) {
             usersCardsTotalValueEl.style.color = 'yellow';
@@ -238,19 +178,21 @@ function passToDealer(){
 
 
             if (dealersCardsTotalValue < 11) {
-                dealersDeckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
-                
+                // dealersDeckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
+                dealersDeckOfCards = dealersDeckOfCards11;
             } 
             if (dealersCardsTotalValue > 10) {
-                dealersDeckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1];
-                
+                // dealersDeckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1];
+                dealersDeckOfCards = dealersDeckOfCards1;
             }
         
         let randomCard = dealersDeckOfCards[Math.floor(Math.random() * dealersDeckOfCards.length)];
-        console.log({randomCard});
+        console.log(randomCard.num);
+        console.log(randomCard);
         console.log({dealersCardsTotalValue});
-        dealersCardsTotalValue += randomCard;
+        dealersCardsTotalValue += randomCard.num;
         dealersCardsTotalValueEl.innerText = dealersCardsTotalValue;
+        dealersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
 
     } if (dealersCardsTotalValue > 21 && usersCardsTotalValue < 22){
         alert("you WON!");
@@ -272,6 +214,8 @@ function passToDealer(){
     
     
 }
+
+
 
 export function resetCards() {
     usersCardsTotalValue = 0;

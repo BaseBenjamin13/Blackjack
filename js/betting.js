@@ -2,7 +2,6 @@
 
 import changeWallet, {getCards, resetCards}from "../js/game.js";
 
-
 const currentBetEl = document.getElementById("bet-num");
 
 let minBet = 50;

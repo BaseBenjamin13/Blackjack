@@ -20,6 +20,19 @@ body {
     display: flex;
     justify-content: center;
 }
+#dealers-recent {
+    display: flex;
+    justify-content: start;
+}
+#users-recent {
+    display: flex;
+    justify-content: end;
+    margin-right: 3%;
+}
+
+#users-recent-card, #dealers-recent-card {
+    padding-left: 10px;
+}
 
 #cards-text {
     padding-right: 7px;
