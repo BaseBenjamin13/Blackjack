@@ -22,10 +22,10 @@ let rightCard = document.getElementById("right-card");
 let rightRightCard = document.getElementById("right-right-card");
 let leftCard = document.getElementById("left-card");
 let leftLeftCard = document.getElementById("left-left-card");
-rightCard.style.backgroundImage = 'url("../imgs/PNG-cards-1.3/2_of_clubs.png")';
-rightRightCard.style.backgroundImage = 'url("../imgs/PNG-cards-1.3/ace_of_clubs.png")';
-leftCard.style.backgroundImage = 'url("../imgs/PNG-cards-1.3/2_of_clubs.png")';
-leftLeftCard.style.backgroundImage = 'url("../imgs/PNG-cards-1.3/ace_of_clubs.png")';
+rightCard.style.backgroundImage = `url(${deckOfCards[3].img})`;
+rightRightCard.style.backgroundImage = `url(${deckOfCards[6].img})`;
+leftCard.style.backgroundImage = `url(${deckOfCards[18].img})`;
+leftLeftCard.style.backgroundImage = `url(${deckOfCards[51].img})`;
 
 
 let walletNum = 5000;
