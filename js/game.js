@@ -122,6 +122,22 @@ export function getCards(){
             rightRightCard.style.backgroundImage = `url(${randomCard.img})`;
         } else if (usersRoundIndicater === 2) {
             rightCard.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (usersRoundIndicater === 3) {
+            right3.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (usersRoundIndicater === 4) {
+            right4.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (usersRoundIndicater === 5) {
+            right5.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (usersRoundIndicater === 6) {
+            right6.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (usersRoundIndicater === 7) {
+            right7.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (usersRoundIndicater === 8) {
+            right8.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (usersRoundIndicater === 9) {
+            right9.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (usersRoundIndicater === 10) {
+            right10.style.backgroundImage = `url(${randomCard.img})`;
         }
         console.log(`round indicater ${usersRoundIndicater}`);
 

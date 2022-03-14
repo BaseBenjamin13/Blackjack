@@ -24,6 +24,7 @@ body {
 #right-card-div {
     display: flex;
     justify-content: right;
+    content: reverse;
 }
 #left-card-div {
     display: flex;

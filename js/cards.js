@@ -60,9 +60,9 @@ export let deckOfCards = [
     {name: 'Queen', suit: 'Spades', num: 10, img: '../imgs/PNG-cards-1.3/queen_of_spades.png'},
     //King's
     {name: 'King', suit: 'Hearts', num: 10, img: '../imgs/PNG-cards-1.3/king_of_hearts.png'},
-    {name: 'King', suit: 'Hearts', num: 10, img: '../imgs/PNG-cards-1.3/king_of_clubs.png'},
-    {name: 'King', suit: 'Hearts', num: 10, img: '../imgs/PNG-cards-1.3/king_of_diamonds.png'},
-    {name: 'King', suit: 'Hearts', num: 10, img: '../imgs/PNG-cards-1.3/king_of_spades.png'},
+    {name: 'King', suit: 'Clubs', num: 10, img: '../imgs/PNG-cards-1.3/king_of_clubs.png'},
+    {name: 'King', suit: 'Diamonds', num: 10, img: '../imgs/PNG-cards-1.3/king_of_diamonds.png'},
+    {name: 'King', suit: 'Spades', num: 10, img: '../imgs/PNG-cards-1.3/king_of_spades.png'},
     //ace's
     {name: 'Ace', suit: 'Hearts', num: aceInput, img: '../imgs/PNG-cards-1.3/ace_of_hearts.png'},
     {name: 'Ace', suit: 'Clubs', num: aceInput, img: '../imgs/PNG-cards-1.3/ace_of_clubs.png'},
