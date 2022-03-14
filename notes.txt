@@ -68,4 +68,4 @@
 
 //Mar 13th.
 // add all imgs into deck of cards; ✅
-// assign most recent randomcard.img into cards div background;
+// assign most recent randomcard.img into cards div background; ✅

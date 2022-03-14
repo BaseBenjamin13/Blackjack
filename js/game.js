@@ -22,9 +22,9 @@ let rightCard = document.getElementById("right-card");
 let rightRightCard = document.getElementById("right-right-card");
 let leftCard = document.getElementById("left-card");
 let leftLeftCard = document.getElementById("left-left-card");
-rightCard.style.backgroundImage = `url(${deckOfCards[3].img})`;
+
 rightRightCard.style.backgroundImage = `url(${deckOfCards[6].img})`;
-leftCard.style.backgroundImage = `url(${deckOfCards[18].img})`;
+
 leftLeftCard.style.backgroundImage = `url(${deckOfCards[51].img})`;
 
 
@@ -77,6 +77,7 @@ export function getCards(){
         usersCardsTotalValueEl.innerText = usersCardsTotalValue;
         console.log(randomCard);
         usersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
+        rightCard.style.backgroundImage = `url(${randomCard.img})`;
         console.log({usersMostRecentCardEl});
         //changing color of total cards value.
         if (usersCardsTotalValue > 10 && usersCardsTotalValue < 17) {
@@ -133,7 +134,7 @@ function passToDealer(){
                 // dealersDeckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1];
                 dealersDeckOfCards = dealersDeckOfCards1;
             }
-        
+        //updating card and displaying card
         let randomCard = dealersDeckOfCards[Math.floor(Math.random() * dealersDeckOfCards.length)];
         console.log(randomCard.num);
         console.log(randomCard);
@@ -141,6 +142,7 @@ function passToDealer(){
         dealersCardsTotalValue += randomCard.num;
         dealersCardsTotalValueEl.innerText = dealersCardsTotalValue;
         dealersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
+        leftCard.style.backgroundImage = `url(${randomCard.img})`;
 
     } if (dealersCardsTotalValue > 21 && usersCardsTotalValue < 22){
         alert("you WON!");
