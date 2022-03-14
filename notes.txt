@@ -72,5 +72,5 @@
 
 //Mar 14th.
 // grab second most recent card.img and put it in div; ✅
-// add more divs, up to 10;
+// add more divs, up to 10 and add them to the dom; ✅
 // add most recent card to open div but keep rest of cards displayed; 😅 rubber duck this!

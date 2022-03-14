@@ -18,11 +18,29 @@ let currentBetEl = document.getElementById("bet-num");
 let usersMostRecentCardEl = document.getElementById("users-recent-card");
 let dealersMostRecentCardEl = document.getElementById("dealers-recent-card");
 
+//users cards divs
 let rightCard = document.getElementById("right-card");
 let rightRightCard = document.getElementById("right-right-card");
+let right3 = document.getElementById("right-3");
+let right4 = document.getElementById("right-4");
+let right5 = document.getElementById("right-5");
+let right6 = document.getElementById("right-6");
+let right7 = document.getElementById("right-7");
+let right8 = document.getElementById("right-8");
+let right9 = document.getElementById("right-9");
+let right10 = document.getElementById("right-10");
+
+//dealers cards divs
 let leftCard = document.getElementById("left-card");
 let leftLeftCard = document.getElementById("left-left-card");
-
+let left3 = document.getElementById("left-3");
+let left4 = document.getElementById("left-4");
+let left5 = document.getElementById("left-5");
+let left6 = document.getElementById("left-6");
+let left7 = document.getElementById("left-7");
+let left8 = document.getElementById("left-8");
+let left9 = document.getElementById("left-9");
+let left10 = document.getElementById("left-10");
 
 
 
