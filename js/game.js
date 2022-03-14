@@ -23,9 +23,7 @@ let rightRightCard = document.getElementById("right-right-card");
 let leftCard = document.getElementById("left-card");
 let leftLeftCard = document.getElementById("left-left-card");
 
-rightRightCard.style.backgroundImage = `url(${deckOfCards[6].img})`;
 
-leftLeftCard.style.backgroundImage = `url(${deckOfCards[51].img})`;
 
 
 let walletNum = 5000;
@@ -53,10 +51,12 @@ betBtn.addEventListener('click', changeBet);
 
 
 let usersCards = 0;
+let usersRoundIndicater = 0;
 
 //hit button, adding cards to users deck
 hitBtn.addEventListener('click', getCards);
 export function getCards(){
+    usersRoundIndicater++;
     //makes it so if theres no bet, hit button won't work
     if (parseInt(betInput) >= 50 && parseInt(betInput) <= 500) {
 
@@ -77,7 +77,7 @@ export function getCards(){
         usersCardsTotalValueEl.innerText = usersCardsTotalValue;
         console.log(randomCard);
         usersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
-        rightCard.style.backgroundImage = `url(${randomCard.img})`;
+        
         console.log({usersMostRecentCardEl});
         //changing color of total cards value.
         if (usersCardsTotalValue > 10 && usersCardsTotalValue < 17) {
@@ -100,9 +100,17 @@ export function getCards(){
             currentBetEl.innerText = '0';
         }
 
+        if (usersRoundIndicater === 1) {
+            rightRightCard.style.backgroundImage = `url(${randomCard.img})`;
+        } else if (usersRoundIndicater === 2) {
+            rightCard.style.backgroundImage = `url(${randomCard.img})`;
+        }
+        console.log(`round indicater ${usersRoundIndicater}`);
+
 
     }
-    
+
+ 
 }
 
 
@@ -116,14 +124,16 @@ function addMoney() {
 
 
 
-
+let dealersRoundIndicater = 0;
 // pass Button, dealer gets cards
 passBtn.addEventListener('click', passToDealer);
 function passToDealer(){
+    dealersRoundIndicater++;
     console.log("pass");
     let dealersDeckOfCards;
     while (dealersCardsTotalValue < usersCardsTotalValue && dealersCardsTotalValue < 22 
         || dealersCardsTotalValue === 21){
+            dealersRoundIndicater++;
 
 
             if (dealersCardsTotalValue < 11) {
@@ -144,22 +154,30 @@ function passToDealer(){
         dealersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
         leftCard.style.backgroundImage = `url(${randomCard.img})`;
 
+
+        if (dealersRoundIndicater === 2) {
+            leftLeftCard.style.backgroundImage = `url(${randomCard.img})`;
+        } else if (usersRoundIndicater === 3) {
+            leftCard.style.backgroundImage = `url(${randomCard.img})`;
+        }
+        console.log(`round indicater ${dealersRoundIndicater}`);
+
     } if (dealersCardsTotalValue > 21 && usersCardsTotalValue < 22){
         alert("you WON!");
         userWon = true;
         // this is not prefered, upgrade this change wallet
         changeWallet(parseInt(currentBetEl.innerText), 0);
-        return currentBetEl.innerText = '0';
+        currentBetEl.innerText = '0';
     } else if (dealersCardsTotalValue === usersCardsTotalValue && usersCardsTotalValue < 22){
         alert("It's a TIE!");
         userWon = true;
         changeWallet(parseInt(currentBetEl.innerText * 0.5), 0);
-        return currentBetEl.innerText = '0';
+        currentBetEl.innerText = '0';
     }else {
         alert("You Lose! Sorry, but your a loser 🥲.");
         userWon = false;
 
-        return currentBetEl.innerText = '0';
+        currentBetEl.innerText = '0';
     }
     
     
