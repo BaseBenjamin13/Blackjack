@@ -79,5 +79,13 @@
 // make Name top left ✅
 
 //Mar 15th.
+// if user wins get 2 * bet back; ✅
+// if wallet is greater then bet, then play;
 // STYLE;
 // MAYBE after you get a card remove card from deck;
+
+//Mar 16th.
+// add second deck
+// make button
+// make button function when clicked ++ a var;
+// if var is even use standard deck if var is odd use second deck;

@@ -218,12 +218,12 @@ function passToDealer(){
         alert("you WON!");
         userWon = true;
         // this is not prefered, upgrade this change wallet
-        changeWallet(parseInt(currentBetEl.innerText), 0);
+        changeWallet(parseInt(currentBetEl.innerText) * 2, 0);
         currentBetEl.innerText = '0';
     } else if (dealersCardsTotalValue === usersCardsTotalValue && usersCardsTotalValue < 22){
         alert("It's a TIE!");
         userWon = true;
-        changeWallet(parseInt(currentBetEl.innerText * 0.5), 0);
+        changeWallet(parseInt(currentBetEl.innerText) * 0.5, 0);
         currentBetEl.innerText = '0';
     }else {
         alert("You Lose! Sorry, but your a loser 🥲.");
