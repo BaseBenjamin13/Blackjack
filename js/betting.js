@@ -1,17 +1,19 @@
 
 
 import changeWallet, {getCards, resetCards}from "../js/game.js";
+// import {  dealersRoundIndicater, usersRoundIndicater } from "../js/cards.js";
+
 
 const currentBetEl = document.getElementById("bet-num");
+
 
 let minBet = 50;
 let maxBet = 500;
 export let betInput;
 
 
-
-
 export default function changeBet(){
+
     resetCards();
     betInput = prompt("make a bet between $50-$500");
     console.log(betInput);

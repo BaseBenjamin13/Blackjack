@@ -50,6 +50,10 @@ let dealersCardsTotalValue = 0;
 let aceInput;
 
 
+let usersRoundIndicater = 0;
+let dealersRoundIndicater = 0;
+
+
 let addMoneyInput;
 let userWon;
 
@@ -69,7 +73,7 @@ betBtn.addEventListener('click', changeBet);
 
 
 let usersCards = 0;
-let usersRoundIndicater = 0;
+
 
 //hit button, adding cards to users deck
 hitBtn.addEventListener('click', getCards);
@@ -144,7 +148,7 @@ export function getCards(){
 
     }
 
- 
+
 }
 
 
@@ -158,11 +162,10 @@ function addMoney() {
 
 
 
-let dealersRoundIndicater = 0;
+
 // pass Button, dealer gets cards
 passBtn.addEventListener('click', passToDealer);
 function passToDealer(){
-    dealersRoundIndicater++;
     console.log("pass");
     let dealersDeckOfCards;
     while (dealersCardsTotalValue < usersCardsTotalValue && dealersCardsTotalValue < 22 
@@ -186,13 +189,28 @@ function passToDealer(){
         dealersCardsTotalValue += randomCard.num;
         dealersCardsTotalValueEl.innerText = dealersCardsTotalValue;
         dealersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
-        leftCard.style.backgroundImage = `url(${randomCard.img})`;
 
 
-        if (dealersRoundIndicater === 2) {
+        if (dealersRoundIndicater === 1) {
             leftLeftCard.style.backgroundImage = `url(${randomCard.img})`;
-        } else if (usersRoundIndicater === 3) {
+        } else if (dealersRoundIndicater === 2) {
             leftCard.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (dealersRoundIndicater === 3) {
+            left3.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (dealersRoundIndicater === 4) {
+            left4.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (dealersRoundIndicater === 5) {
+            left5.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (dealersRoundIndicater === 6) {
+            left6.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (dealersRoundIndicater === 7) {
+            left7.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (dealersRoundIndicater === 8) {
+            left8.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (dealersRoundIndicater === 9) {
+            left9.style.backgroundImage = `url(${randomCard.img})`;
+        }else if (dealersRoundIndicater === 10) {
+            left10.style.backgroundImage = `url(${randomCard.img})`;
         }
         console.log(`round indicater ${dealersRoundIndicater}`);
 
@@ -217,13 +235,18 @@ function passToDealer(){
     
 }
 
-
+let rightCards = document.querySelectorAll(".right-cards");
+let leftCards = document.querySelectorAll(".left");
 
 export function resetCards() {
     usersCardsTotalValue = 0;
     usersCardsTotalValueEl.innerText = usersCardsTotalValue;
     dealersCardsTotalValue = 0;
     dealersCardsTotalValueEl.innerText = dealersCardsTotalValue;
+    rightCards.forEach((card) => card.style.backgroundImage = 'none');
+    leftCards.forEach((card) => card.style.backgroundImage = 'none');
+    usersRoundIndicater = 0;
+    dealersRoundIndicater = 0;
 }
 
 

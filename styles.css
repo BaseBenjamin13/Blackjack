@@ -5,11 +5,21 @@ body {
     background-repeat: no-repeat;
     text-align: center;
 }
-
-#wallet-div, #cards-value-div {
+/* nav {
+    display: flex;
+    flex-flow:column;
+} */
+#wallet-div, #cards-value-div, #name-div {
     display: flex;
     justify-content: end;
     margin-right: 3%;
+}
+
+#name-div {
+    justify-content: start;
+    font-family: "Audiowide", sans-serif;
+    font-size: 200%;
+    margin: 0%;
 }
 #dealers-value-div {
     display: flex;
