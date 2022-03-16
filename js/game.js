@@ -3,7 +3,7 @@
 
 
 //learned how to use module on youtube from Web Dev Simplifield.
-import changeBet, {betInput} from "/js/betting.js";
+import changeBet, {betInput} from "../js/betting.js";
 
 import { deckOfCards, dealersDeckOfCards1, dealersDeckOfCards11 } from "../js/cards.js";
 
