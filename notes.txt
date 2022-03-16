@@ -80,7 +80,8 @@
 
 //Mar 15th.
 // if user wins get 2 * bet back; ✅
-// if wallet is greater then bet, then play;
+// if wallet is greater then bet, then play; ✅
+// fix tie game;
 // STYLE;
 // MAYBE after you get a card remove card from deck;
 

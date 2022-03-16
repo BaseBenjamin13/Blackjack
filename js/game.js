@@ -44,7 +44,7 @@ let left10 = document.getElementById("left-10");
 
 
 
-let walletNum = 5000;
+let walletNum = 500;
 let usersCardsTotalValue = 0;
 let dealersCardsTotalValue = 0;
 let aceInput;
@@ -80,71 +80,76 @@ hitBtn.addEventListener('click', getCards);
 export function getCards(){
     usersRoundIndicater++;
     //makes it so if theres no bet, hit button won't work
-    if (parseInt(betInput) >= 50 && parseInt(betInput) <= 500) {
+    if (parseInt(betInput) >= 50 && parseInt(betInput) <= 500 ) {
+        if (walletNum >= 0){
 
-        usersCards++;
-        console.log({usersCards});
-        let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
-        if (randomCard.name === 'Ace') {
-            aceInput = prompt("You got an Ace, how do you want to use it. \n\n             11 or 1");
-            //found parseInt on stackoverflow.
-            aceInput = parseInt(aceInput);
-            randomCard.num = aceInput;
-            // let num = aceInput + usersCards;
-            // console.log(num);
-        }
-        //adding total value of cards the html El.
-        usersCardsTotalValue += randomCard.num;
-        console.log(usersCardsTotalValue);
-        usersCardsTotalValueEl.innerText = usersCardsTotalValue;
-        console.log(randomCard);
-        usersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
         
-        console.log({usersMostRecentCardEl});
-        //changing color of total cards value.
-        if (usersCardsTotalValue > 10 && usersCardsTotalValue < 17) {
-            usersCardsTotalValueEl.style.color = 'yellow';
-            passBtn.style.color = 'yellow';
-            hitBtn.style.color = 'yellow';
-        } else if (usersCardsTotalValue >= 17 && usersCardsTotalValue < 22) {
-            usersCardsTotalValueEl.style.color = 'rgb(0, 220, 0)';
-            passBtn.style.color = 'rgb(0, 220, 0)';
-            hitBtn.style.color = 'red';
-        } else {
-            usersCardsTotalValueEl.style.color = 'red';
-            passBtn.style.color = 'red';
-            hitBtn.style.color = 'rgb(0, 220, 0)';
-        }
-        //user goes over 21:
-        if (usersCardsTotalValue > 21) {
-            alert("You Lose! Sorry, but your a loser 🥲.")
-            let userWon = false;
-            currentBetEl.innerText = '0';
-        }
+            usersCards++;
+            console.log({usersCards});
+            let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
+            if (randomCard.name === 'Ace') {
+                aceInput = prompt("You got an Ace, how do you want to use it. \n\n             11 or 1");
+                //found parseInt on stackoverflow.
+                aceInput = parseInt(aceInput);
+                randomCard.num = aceInput;
+                // let num = aceInput + usersCards;
+                // console.log(num);
+            }
+            //adding total value of cards the html El.
+            usersCardsTotalValue += randomCard.num;
+            console.log(usersCardsTotalValue);
+            usersCardsTotalValueEl.innerText = usersCardsTotalValue;
+            console.log(randomCard);
+            usersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
+            
+            console.log({usersMostRecentCardEl});
+            //changing color of total cards value.
+            if (usersCardsTotalValue > 10 && usersCardsTotalValue < 17) {
+                usersCardsTotalValueEl.style.color = 'yellow';
+                passBtn.style.color = 'yellow';
+                hitBtn.style.color = 'yellow';
+            } else if (usersCardsTotalValue >= 17 && usersCardsTotalValue < 22) {
+                usersCardsTotalValueEl.style.color = 'rgb(0, 220, 0)';
+                passBtn.style.color = 'rgb(0, 220, 0)';
+                hitBtn.style.color = 'red';
+            } else {
+                usersCardsTotalValueEl.style.color = 'red';
+                passBtn.style.color = 'red';
+                hitBtn.style.color = 'rgb(0, 220, 0)';
+            }
+            //user goes over 21:
+            if (usersCardsTotalValue > 21) {
+                alert("You Lose! Sorry, but your a loser 🥲.")
+                let userWon = false;
+                currentBetEl.innerText = '0';
+            }
 
-        if (usersRoundIndicater === 1) {
-            rightRightCard.style.backgroundImage = `url(${randomCard.img})`;
-        } else if (usersRoundIndicater === 2) {
-            rightCard.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (usersRoundIndicater === 3) {
-            right3.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (usersRoundIndicater === 4) {
-            right4.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (usersRoundIndicater === 5) {
-            right5.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (usersRoundIndicater === 6) {
-            right6.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (usersRoundIndicater === 7) {
-            right7.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (usersRoundIndicater === 8) {
-            right8.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (usersRoundIndicater === 9) {
-            right9.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (usersRoundIndicater === 10) {
-            right10.style.backgroundImage = `url(${randomCard.img})`;
-        }
-        console.log(`round indicater ${usersRoundIndicater}`);
+            if (usersRoundIndicater === 1) {
+                rightRightCard.style.backgroundImage = `url(${randomCard.img})`;
+            } else if (usersRoundIndicater === 2) {
+                rightCard.style.backgroundImage = `url(${randomCard.img})`;
+            }else if (usersRoundIndicater === 3) {
+                right3.style.backgroundImage = `url(${randomCard.img})`;
+            }else if (usersRoundIndicater === 4) {
+                right4.style.backgroundImage = `url(${randomCard.img})`;
+            }else if (usersRoundIndicater === 5) {
+                right5.style.backgroundImage = `url(${randomCard.img})`;
+            }else if (usersRoundIndicater === 6) {
+                right6.style.backgroundImage = `url(${randomCard.img})`;
+            }else if (usersRoundIndicater === 7) {
+                right7.style.backgroundImage = `url(${randomCard.img})`;
+            }else if (usersRoundIndicater === 8) {
+                right8.style.backgroundImage = `url(${randomCard.img})`;
+            }else if (usersRoundIndicater === 9) {
+                right9.style.backgroundImage = `url(${randomCard.img})`;
+            }else if (usersRoundIndicater === 10) {
+                right10.style.backgroundImage = `url(${randomCard.img})`;
+            }
+            console.log(`round indicater ${usersRoundIndicater}`);
 
+        }else{
+            alert("You ran out of money. Add more money to keep playing");
+        }
 
     }
 
