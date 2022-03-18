@@ -82,12 +82,12 @@
 // if user wins get 2 * bet back; ✅
 // if wallet is greater then bet, then play; ✅
 
-// STYLE;
+// STYLE; ✅
 // MAYBE after you get a card remove card from deck;
 
 
 //Mar 16th.
-// fix tie game, if user gets '11' dealer might stop at '11', dealer should keep going;
+// fix tie game, if user gets '11' dealer might stop at '11', dealer should keep going; ✅
 // add second deck
 // make button
 // make button function when clicked ++ a var;

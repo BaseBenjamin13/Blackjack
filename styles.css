@@ -13,6 +13,12 @@ body {
     display: flex;
     justify-content: end;
     margin-right: 3%;
+   
+}
+#wallet-div {
+    margin-left: 80%;
+    width: 18%;
+    background-color: rgba(0, 200, 0, .5);
 }
 
 #name-div {

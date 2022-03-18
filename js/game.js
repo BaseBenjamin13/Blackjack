@@ -100,7 +100,7 @@ export function getCards(){
             console.log(usersCardsTotalValue);
             usersCardsTotalValueEl.innerText = usersCardsTotalValue;
             console.log(randomCard);
-            usersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
+            // usersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
             
             console.log({usersMostRecentCardEl});
             //changing color of total cards value.
@@ -173,8 +173,8 @@ passBtn.addEventListener('click', passToDealer);
 function passToDealer(){
     console.log("pass");
     let dealersDeckOfCards;
-    while (dealersCardsTotalValue < usersCardsTotalValue && dealersCardsTotalValue < 22 
-        || dealersCardsTotalValue === 21){
+    while (dealersCardsTotalValue <= usersCardsTotalValue && dealersCardsTotalValue < 22 
+        && dealersCardsTotalValue !== 21){
             dealersRoundIndicater++;
 
 
@@ -193,7 +193,7 @@ function passToDealer(){
         console.log({dealersCardsTotalValue});
         dealersCardsTotalValue += randomCard.num;
         dealersCardsTotalValueEl.innerText = dealersCardsTotalValue;
-        dealersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
+        // dealersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
 
 
         if (dealersRoundIndicater === 1) {
