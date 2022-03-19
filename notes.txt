@@ -88,11 +88,8 @@
 
 //Mar 16th.
 // fix tie game, if user gets '11' dealer might stop at '11', dealer should keep going; ✅
-// add second deck
-// make button
-// make button function when clicked ++ a var;
-// if var is even use standard deck if var is odd use second deck;
+
 
 //Mar 17th
-// test / debug;
+// test / debug; ✅
 // prepare for presentation;
