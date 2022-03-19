@@ -10,7 +10,7 @@ How To Play: To start the game click the bet button and place a bet, you will ge
 ------------------
 
 ### Screenshot: 
-(imgs/screen_shot.png)
+![Blackjack Game](imgs/screen_shot.png)
 
 
 
