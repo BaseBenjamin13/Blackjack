@@ -9,12 +9,12 @@ export let deckOfCards = [
     {name: '2', suit: 'Hearts', num: 2, img: 'imgs/2_of_hearts.png'},
     {name: '2', suit: 'Clubs', num: 2, img: 'imgs/2_of_clubs.png'},
     {name: '2', suit: 'Diamonds', num: 2, img: 'imgs/2_of_diamonds.png'},
-    {name: '2', suit: 'Spades', num: 2, img: 'imgs/2_of_Spades.png'},
+    {name: '2', suit: 'Spades', num: 2, img: 'imgs/2_of_spades.png'},
     //3's
     {name: '3', suit: 'Hearts', num: 3, img: 'imgs/3_of_hearts.png'},
     {name: '3', suit: 'Clubs', num: 3, img: 'imgs/3_of_clubs.png'},
     {name: '3', suit: 'Diamonds', num: 3, img: 'imgs/3_of_diamonds.png'},
-    {name: '3', suit: 'Spades', num: 3, img: 'imgs/3_of_Spades.png'},
+    {name: '3', suit: 'Spades', num: 3, img: 'imgs/3_of_spades.png'},
     //4's
     {name: '4', suit: 'Hearts', num: 4, img: 'imgs/4_of_hearts.png'},
     {name: '4', suit: 'Clubs', num: 4, img: 'imgs/4_of_clubs.png'},
@@ -85,12 +85,12 @@ export let dealersDeckOfCards11 = [
     {name: '2', suit: 'Hearts', num: 2, img: 'imgs/2_of_hearts.png'},
     {name: '2', suit: 'Clubs', num: 2, img: 'imgs/2_of_clubs.png'},
     {name: '2', suit: 'Diamonds', num: 2, img: 'imgs/2_of_diamonds.png'},
-    {name: '2', suit: 'Spades', num: 2, img: 'imgs/2_of_Spades.png'},
+    {name: '2', suit: 'Spades', num: 2, img: 'imgs/2_of_spades.png'},
     //3's
     {name: '3', suit: 'Hearts', num: 3, img: 'imgs/3_of_hearts.png'},
     {name: '3', suit: 'Clubs', num: 3, img: 'imgs/3_of_clubs.png'},
     {name: '3', suit: 'Diamonds', num: 3, img: 'imgs/3_of_diamonds.png'},
-    {name: '3', suit: 'Spades', num: 3, img: 'imgs/3_of_Spades.png'},
+    {name: '3', suit: 'Spades', num: 3, img: 'imgs/3_of_spades.png'},
     //4's
     {name: '4', suit: 'Hearts', num: 4, img: 'imgs/4_of_hearts.png'},
     {name: '4', suit: 'Clubs', num: 4, img: 'imgs/4_of_clubs.png'},
@@ -164,12 +164,12 @@ export let dealersDeckOfCards1 = [
     {name: '2', suit: 'Hearts', num: 2, img: 'imgs/2_of_hearts.png'},
     {name: '2', suit: 'Clubs', num: 2, img: 'imgs/2_of_clubs.png'},
     {name: '2', suit: 'Diamonds', num: 2, img: 'imgs/2_of_diamonds.png'},
-    {name: '2', suit: 'Spades', num: 2, img: 'imgs/2_of_Spades.png'},
+    {name: '2', suit: 'Spades', num: 2, img: 'imgs/2_of_spades.png'},
     //3's
     {name: '3', suit: 'Hearts', num: 3, img: 'imgs/3_of_hearts.png'},
     {name: '3', suit: 'Clubs', num: 3, img: 'imgs/3_of_clubs.png'},
     {name: '3', suit: 'Diamonds', num: 3, img: 'imgs/3_of_diamonds.png'},
-    {name: '3', suit: 'Spades', num: 3, img: 'imgs/3_of_Spades.png'},
+    {name: '3', suit: 'Spades', num: 3, img: 'imgs/3_of_spades.png'},
     //4's
     {name: '4', suit: 'Hearts', num: 4, img: 'imgs/4_of_hearts.png'},
     {name: '4', suit: 'Clubs', num: 4, img: 'imgs/4_of_clubs.png'},
