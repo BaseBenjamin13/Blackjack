@@ -231,7 +231,7 @@ function passToDealer(){
         changeWallet(parseInt(currentBetEl.innerText) * 0.5, 0);
         currentBetEl.innerText = '0';
     }else {
-        alert("You Lose! Sorry, but your a loser 🥲.");
+        alert("You Lost!");
         userWon = false;
 
         currentBetEl.innerText = '0';
