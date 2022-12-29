@@ -60,11 +60,9 @@ let userWon;
 
 //add or subtract from wallet function.
 export default function changeWallet(addNum, subNum) {
-    console.log({walletNumEl, walletNum});
     walletNum -= subNum;
     walletNum += addNum;
     walletNumEl.innerText = walletNum;
-    console.log({walletNumEl, walletNum});
 }
 
 
@@ -83,27 +81,16 @@ export function getCards(){
     if (parseInt(betInput) >= 50 && parseInt(betInput) <= 500 ) {
         if (walletNum >= 0){
 
-        
             usersCards++;
-            console.log({usersCards});
             let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
             if (randomCard.name === 'Ace') {
-                aceInput = prompt("You got an Ace, how do you want to use it. \n\n             11 or 1");
-                //found parseInt on stackoverflow.
+                aceInput = prompt("You got an Ace, how do you want to use it. \n\n   11 or 1");
                 aceInput = parseInt(aceInput);
                 randomCard.num = aceInput;
-                // let num = aceInput + usersCards;
-                // console.log(num);
             }
-            //adding total value of cards the html El.
             usersCardsTotalValue += randomCard.num;
-            console.log(usersCardsTotalValue);
             usersCardsTotalValueEl.innerText = usersCardsTotalValue;
-            console.log(randomCard);
-            // usersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
             
-            console.log({usersMostRecentCardEl});
-            //changing color of total cards value.
             if (usersCardsTotalValue > 10 && usersCardsTotalValue < 17) {
                 usersCardsTotalValueEl.style.color = 'yellow';
                 passBtn.style.color = 'yellow';
@@ -145,7 +132,6 @@ export function getCards(){
             }else if (usersRoundIndicater === 10) {
                 right10.style.backgroundImage = `url(${randomCard.img})`;
             }
-            console.log(`round indicater ${usersRoundIndicater}`);
 
         }else{
             alert("You ran out of money. Add more money to keep playing");
@@ -179,11 +165,9 @@ function passToDealer(){
 
 
             if (dealersCardsTotalValue < 11) {
-                // dealersDeckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11];
                 dealersDeckOfCards = dealersDeckOfCards11;
             } 
             if (dealersCardsTotalValue > 10) {
-                // dealersDeckOfCards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1];
                 dealersDeckOfCards = dealersDeckOfCards1;
             }
         //updating card and displaying card
@@ -193,8 +177,6 @@ function passToDealer(){
         console.log({dealersCardsTotalValue});
         dealersCardsTotalValue += randomCard.num;
         dealersCardsTotalValueEl.innerText = dealersCardsTotalValue;
-        // dealersMostRecentCardEl.innerText = ` ${randomCard.name} of ${randomCard.suit}`;
-
 
         if (dealersRoundIndicater === 1) {
             leftLeftCard.style.backgroundImage = `url(${randomCard.img})`;
@@ -217,7 +199,6 @@ function passToDealer(){
         }else if (dealersRoundIndicater === 10) {
             left10.style.backgroundImage = `url(${randomCard.img})`;
         }
-        console.log(`round indicater ${dealersRoundIndicater}`);
 
     } if (dealersCardsTotalValue > 21 && usersCardsTotalValue < 22){
         alert("you WON!");

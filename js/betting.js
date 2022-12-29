@@ -29,7 +29,6 @@ export default function changeBet(){
             currentBetEl.innerText = betInput;
             for (let i = 0; i < 2; i++) {
                 getCards();
-                console.log("got card");
             }
         } else if (betInput < minBet) {
             alert("The bet is too low. \n\n\n Try Again!");
