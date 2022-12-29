@@ -1,6 +1,6 @@
 
 
-import changeWallet, {getCards, resetCards}from "../js/game.js";
+import changeWallet, {getCards, resetCards, walletNum}from "../js/game.js";
 // import {  dealersRoundIndicater, usersRoundIndicater } from "../js/cards.js";
 
 
@@ -15,6 +15,9 @@ export let betInput;
 export default function changeBet(){
 
     resetCards();
+    if(walletNum <= 50){
+        return alert("Not enough money. \n\n Add money to wallet and try again.")
+    }
     betInput = prompt("Make a bet between $50-$500");
     // let promptInput = prompt("make a bet between $50-$500");
     // betInput = parseInt(promptInput, 10)

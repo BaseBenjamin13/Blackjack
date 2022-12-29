@@ -44,7 +44,7 @@ let left10 = document.getElementById("left-10");
 
 
 
-let walletNum = 500;
+export let walletNum = 500;
 let usersCardsTotalValue = 0;
 let dealersCardsTotalValue = 0;
 let aceInput;
@@ -69,7 +69,7 @@ export default function changeWallet(addNum, subNum) {
 
 
 //Making a bet.
-betBtn.addEventListener('click', changeBet);
+if(walletNum >= 50) {betBtn.addEventListener('click', changeBet)};
 
 
 let usersCards = 0;
