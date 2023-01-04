@@ -172,9 +172,7 @@ function passToDealer(){
             }
         //updating card and displaying card
         let randomCard = dealersDeckOfCards[Math.floor(Math.random() * dealersDeckOfCards.length)];
-        console.log(randomCard.num);
-        console.log(randomCard);
-        console.log({dealersCardsTotalValue});
+
         dealersCardsTotalValue += randomCard.num;
         dealersCardsTotalValueEl.innerText = dealersCardsTotalValue;
 
@@ -214,7 +212,7 @@ function passToDealer(){
     }else {
         alert("You Lost!");
         userWon = false;
-
+        setTimeout(resetCards, 3000)
         currentBetEl.innerText = '0';
     }
     
@@ -234,7 +232,6 @@ export function resetCards() {
     usersRoundIndicater = 0;
     dealersRoundIndicater = 0;
 }
-
 
 
 
