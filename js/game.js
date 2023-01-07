@@ -106,7 +106,7 @@ export function getCards(){
             }
             //user goes over 21:
             if (usersCardsTotalValue > 21) {
-                alert("You Lose! Sorry, but your a loser 🥲.")
+                alert("You Lost!")
                 let userWon = false;
                 currentBetEl.innerText = '0';
             }
