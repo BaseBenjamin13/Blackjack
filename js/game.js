@@ -49,14 +49,11 @@ let usersCardsTotalValue = 0;
 let dealersCardsTotalValue = 0;
 let aceInput;
 
-
 let usersRoundIndicater = 0;
 let dealersRoundIndicater = 0;
 
-
 let addMoneyInput;
 let userWon;
-
 
 //add or subtract from wallet function.
 export default function changeWallet(addNum, subNum) {
@@ -65,13 +62,10 @@ export default function changeWallet(addNum, subNum) {
     walletNumEl.innerText = walletNum;
 }
 
-
 //Making a bet.
 if(walletNum >= 50) {betBtn.addEventListener('click', changeBet)};
 
-
 let usersCards = 0;
-
 
 //hit button, adding cards to users deck
 hitBtn.addEventListener('click', getCards);
@@ -80,6 +74,9 @@ export function getCards(){
     //makes it so if theres no bet, hit button won't work
     if (parseInt(betInput) >= 50 && parseInt(betInput) <= 500 ) {
         if (walletNum >= 0){
+
+            passBtn.disabled = false;
+            hitBtn.disabled = false;
 
             usersCards++;
             let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
@@ -136,10 +133,7 @@ export function getCards(){
         }else{
             alert("You ran out of money. Add more money to keep playing");
         }
-
     }
-
-
 }
 
 
@@ -150,9 +144,6 @@ function addMoney() {
     addMoneyInput = parseInt(addMoneyInput);
     changeWallet(addMoneyInput, 0);
 }
-
-
-
 
 // pass Button, dealer gets cards
 passBtn.addEventListener('click', passToDealer);
@@ -204,23 +195,31 @@ function passToDealer(){
         // this is not prefered, upgrade this change wallet
         changeWallet(parseInt(currentBetEl.innerText) * 2, 0);
         currentBetEl.innerText = '0';
+        disableHitAndPassButton()
     } else if (dealersCardsTotalValue === usersCardsTotalValue && usersCardsTotalValue < 22){
         alert("It's a TIE!");
         userWon = true;
         changeWallet(parseInt(currentBetEl.innerText) * 0.5, 0);
         currentBetEl.innerText = '0';
+        disableHitAndPassButton()
     }else {
         alert("You Lost!");
         userWon = false;
         setTimeout(resetCards, 3000)
         currentBetEl.innerText = '0';
+        disableHitAndPassButton()
     }
-    
-    
 }
 
 let rightCards = document.querySelectorAll(".right-cards");
 let leftCards = document.querySelectorAll(".left");
+
+function disableHitAndPassButton() {
+    passBtn.disabled = true;
+    hitBtn.disabled = true;
+    passBtn.style.color = 'gray';
+    hitBtn.style.color = 'gray';
+}
 
 export function resetCards() {
     usersCardsTotalValue = 0;
@@ -232,9 +231,5 @@ export function resetCards() {
     usersRoundIndicater = 0;
     dealersRoundIndicater = 0;
 }
-
-
-
-
 
 

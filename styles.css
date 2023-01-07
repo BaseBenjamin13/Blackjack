@@ -95,13 +95,10 @@ button {
     background-color: black;
     font-size: 3rem;
 }
-#hit-btn{
-    color: rgb(0, 220, 0);
-}
 
 #bet-btn {
     color: red;
 }
-#pass-btn {
-    color: seashell;
+#pass-btn, #hit-btn {
+    color: gray;
 }
