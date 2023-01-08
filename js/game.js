@@ -75,6 +75,8 @@ export function getCards(){
     if (parseInt(betInput) >= 50 && parseInt(betInput) <= 500 ) {
         if (walletNum >= 0){
 
+            betBtn.disabled = true;
+            betBtn.style.color = 'gray';
             passBtn.disabled = false;
             hitBtn.disabled = false;
 
@@ -106,6 +108,8 @@ export function getCards(){
                 alert("You Lost!")
                 let userWon = false;
                 currentBetEl.innerText = '0';
+                disableHitAndPassButton()
+                enableBetButton()
             }
 
             if (usersRoundIndicater === 1) {
@@ -196,18 +200,21 @@ function passToDealer(){
         changeWallet(parseInt(currentBetEl.innerText) * 2, 0);
         currentBetEl.innerText = '0';
         disableHitAndPassButton()
+        enableBetButton()
     } else if (dealersCardsTotalValue === usersCardsTotalValue && usersCardsTotalValue < 22){
         alert("It's a TIE!");
         userWon = true;
         changeWallet(parseInt(currentBetEl.innerText) * 0.5, 0);
         currentBetEl.innerText = '0';
         disableHitAndPassButton()
+        enableBetButton()
     }else {
         alert("You Lost!");
         userWon = false;
-        setTimeout(resetCards, 3000)
+        // setTimeout(resetCards, 3000)
         currentBetEl.innerText = '0';
         disableHitAndPassButton()
+        enableBetButton()
     }
 }
 
@@ -219,6 +226,11 @@ function disableHitAndPassButton() {
     hitBtn.disabled = true;
     passBtn.style.color = 'gray';
     hitBtn.style.color = 'gray';
+}
+
+function enableBetButton() {
+    betBtn.disabled = false;
+    betBtn.style.color = 'red';
 }
 
 export function resetCards() {
