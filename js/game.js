@@ -204,7 +204,7 @@ function passToDealer(){
     } else if (dealersCardsTotalValue === usersCardsTotalValue && usersCardsTotalValue < 22){
         alert("It's a TIE!");
         userWon = true;
-        changeWallet(parseInt(currentBetEl.innerText) * 0.5, 0);
+        changeWallet(parseInt(currentBetEl.innerText), 0);
         currentBetEl.innerText = '0';
         disableHitAndPassButton()
         enableBetButton()
