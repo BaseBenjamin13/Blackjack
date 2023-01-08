@@ -4,8 +4,8 @@
 
 //learned how to use module on youtube from Web Dev Simplifield.
 import changeBet, {betInput} from "../js/betting.js";
-
 import { deckOfCards, dealersDeckOfCards1, dealersDeckOfCards11 } from "../js/cards.js";
+import { enableBetButton, disableHitAndPassButton } from "./helpers/buttons.js";
 
 const hitBtn = document.querySelector("#hit-btn");
 let walletNumEl = document.getElementById("wallet-num");
@@ -221,17 +221,6 @@ function passToDealer(){
 let rightCards = document.querySelectorAll(".right-cards");
 let leftCards = document.querySelectorAll(".left");
 
-function disableHitAndPassButton() {
-    passBtn.disabled = true;
-    hitBtn.disabled = true;
-    passBtn.style.color = 'gray';
-    hitBtn.style.color = 'gray';
-}
-
-function enableBetButton() {
-    betBtn.disabled = false;
-    betBtn.style.color = 'red';
-}
 
 export function resetCards() {
     usersCardsTotalValue = 0;
