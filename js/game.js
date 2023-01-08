@@ -7,6 +7,7 @@ import changeBet, {betInput} from "../js/betting.js";
 import { deckOfCards, dealersDeckOfCards1, dealersDeckOfCards11 } from "../js/cards.js";
 import { enableBetButton, disableHitAndPassButton } from "./helpers/buttons.js";
 
+const statusText = document.getElementById("status-text");
 const hitBtn = document.querySelector("#hit-btn");
 let walletNumEl = document.getElementById("wallet-num");
 const betBtn = document.querySelector("#bet-btn");
@@ -79,6 +80,7 @@ export function getCards(){
             betBtn.style.color = 'gray';
             passBtn.disabled = false;
             hitBtn.disabled = false;
+            statusText.innerText = "Let's Play!"
 
             usersCards++;
             let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
@@ -110,6 +112,7 @@ export function getCards(){
                 currentBetEl.innerText = '0';
                 disableHitAndPassButton()
                 enableBetButton()
+                statusText.innerText = "Place bet to start playing!"
             }
 
             if (usersRoundIndicater === 1) {
@@ -201,6 +204,7 @@ function passToDealer(){
         currentBetEl.innerText = '0';
         disableHitAndPassButton()
         enableBetButton()
+        statusText.innerText = "Place bet to start playing!"
     } else if (dealersCardsTotalValue === usersCardsTotalValue && usersCardsTotalValue < 22){
         alert("It's a TIE!");
         userWon = true;
@@ -208,6 +212,7 @@ function passToDealer(){
         currentBetEl.innerText = '0';
         disableHitAndPassButton()
         enableBetButton()
+        statusText.innerText = "Place bet to start playing!"
     }else {
         alert("You Lost!");
         userWon = false;
@@ -215,6 +220,7 @@ function passToDealer(){
         currentBetEl.innerText = '0';
         disableHitAndPassButton()
         enableBetButton()
+        statusText.innerText = "Place bet to start playing!"
     }
 }
 
