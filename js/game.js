@@ -73,7 +73,7 @@ hitBtn.addEventListener('click', getCards);
 export function getCards() {
     usersRoundIndicater++;
     //makes it so if theres no bet, hit button won't work
-    if (parseInt(betInput) >= 50 && parseInt(betInput) <= 500) {
+    if (parseInt(betInput) >= 50) {
         if (walletNum >= 0) {
 
             betBtn.disabled = true;
