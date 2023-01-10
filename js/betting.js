@@ -1,6 +1,6 @@
 
 
-import changeWallet, {getCards, resetCards, walletNum}from "../js/game.js";
+import changeWallet, { getCards, resetCards, walletNum}from "./game.js";
 // import {  dealersRoundIndicater, usersRoundIndicater } from "../js/cards.js";
 
 

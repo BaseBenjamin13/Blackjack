@@ -1,11 +1,9 @@
 
 
-
-
 //learned how to use module on youtube from Web Dev Simplifield.
 import changeBet, { betInput } from "../js/betting.js";
 import { deckOfCards, dealersDeckOfCards1, dealersDeckOfCards11 } from "../js/cards.js";
-import { enableBetButton, disableHitAndPassButton } from "./helpers/buttons.js";
+import { userWon, userLost, tieGame } from './helpers/winLose.js';
 
 const statusText = document.getElementById("status-text");
 const hitBtn = document.querySelector("#hit-btn");
@@ -15,7 +13,6 @@ let usersCardsTotalValueEl = document.getElementById("cards-num");
 const addMoneyBtn = document.querySelector("#add-money-btn");
 const passBtn = document.querySelector("#pass-btn");
 let dealersCardsTotalValueEl = document.getElementById("dealer-num");
-let currentBetEl = document.getElementById("bet-num");
 let usersMostRecentCardEl = document.getElementById("users-recent-card");
 let dealersMostRecentCardEl = document.getElementById("dealers-recent-card");
 
@@ -54,7 +51,6 @@ let usersRoundIndicater = 0;
 let dealersRoundIndicater = 0;
 
 let addMoneyInput;
-let userWon;
 
 //add or subtract from wallet function.
 export default function changeWallet(addNum, subNum) {
@@ -107,12 +103,7 @@ export function getCards() {
             }
             //user goes over 21:
             if (usersCardsTotalValue > 21) {
-                setTimeout(() => {alert("You Lost!")}, 100);
-                let userWon = false;
-                currentBetEl.innerText = '0';
-                disableHitAndPassButton()
-                enableBetButton()
-                statusText.innerText = "Place bet to start playing!"
+                userLost()
             }
 
             if (usersRoundIndicater === 1) {
@@ -199,30 +190,11 @@ async function passToDealer() {
 
     }
     if (dealersCardsTotalValue > 21 && usersCardsTotalValue < 22) {
-        setTimeout(() => {alert("you WON!")}, 100);
-        userWon = true;
-        // this is not prefered, upgrade this change wallet
-        changeWallet(parseInt(currentBetEl.innerText) * 2, 0);
-        currentBetEl.innerText = '0';
-        disableHitAndPassButton()
-        enableBetButton()
-        statusText.innerText = "Place bet to start playing!"
+        userWon()
     } else if (dealersCardsTotalValue === usersCardsTotalValue && usersCardsTotalValue <= 21) {
-        setTimeout(() => {alert("It's a TIE!")}, 100);
-        userWon = true;
-        changeWallet(parseInt(currentBetEl.innerText), 0);
-        currentBetEl.innerText = '0';
-        disableHitAndPassButton()
-        enableBetButton()
-        statusText.innerText = "Place bet to start playing!"
+        tieGame()
     } else {
-        setTimeout(() => {alert("You Lost!")}, 100);
-        userWon = false;
-        // setTimeout(resetCards, 3000)
-        currentBetEl.innerText = '0';
-        disableHitAndPassButton()
-        enableBetButton()
-        statusText.innerText = "Place bet to start playing!"
+        userLost()
     }
 }
 
