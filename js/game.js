@@ -3,7 +3,7 @@
 
 
 //learned how to use module on youtube from Web Dev Simplifield.
-import changeBet, {betInput} from "../js/betting.js";
+import changeBet, { betInput } from "../js/betting.js";
 import { deckOfCards, dealersDeckOfCards1, dealersDeckOfCards11 } from "../js/cards.js";
 import { enableBetButton, disableHitAndPassButton } from "./helpers/buttons.js";
 
@@ -64,17 +64,17 @@ export default function changeWallet(addNum, subNum) {
 }
 
 //Making a bet.
-if(walletNum >= 50) {betBtn.addEventListener('click', changeBet)};
+if (walletNum >= 50) { betBtn.addEventListener('click', changeBet) };
 
 let usersCards = 0;
 
 //hit button, adding cards to users deck
 hitBtn.addEventListener('click', getCards);
-export function getCards(){
+export function getCards() {
     usersRoundIndicater++;
     //makes it so if theres no bet, hit button won't work
-    if (parseInt(betInput) >= 50 && parseInt(betInput) <= 500 ) {
-        if (walletNum >= 0){
+    if (parseInt(betInput) >= 50 && parseInt(betInput) <= 500) {
+        if (walletNum >= 0) {
 
             betBtn.disabled = true;
             betBtn.style.color = 'gray';
@@ -91,7 +91,7 @@ export function getCards(){
             }
             usersCardsTotalValue += randomCard.num;
             usersCardsTotalValueEl.innerText = usersCardsTotalValue;
-            
+
             if (usersCardsTotalValue > 10 && usersCardsTotalValue < 17) {
                 usersCardsTotalValueEl.style.color = 'yellow';
                 passBtn.style.color = 'yellow';
@@ -107,7 +107,7 @@ export function getCards(){
             }
             //user goes over 21:
             if (usersCardsTotalValue > 21) {
-                alert("You Lost!")
+                setTimeout(() => {alert("You Lost!")}, 100);
                 let userWon = false;
                 currentBetEl.innerText = '0';
                 disableHitAndPassButton()
@@ -119,25 +119,25 @@ export function getCards(){
                 rightRightCard.style.backgroundImage = `url(${randomCard.img})`;
             } else if (usersRoundIndicater === 2) {
                 rightCard.style.backgroundImage = `url(${randomCard.img})`;
-            }else if (usersRoundIndicater === 3) {
+            } else if (usersRoundIndicater === 3) {
                 right3.style.backgroundImage = `url(${randomCard.img})`;
-            }else if (usersRoundIndicater === 4) {
+            } else if (usersRoundIndicater === 4) {
                 right4.style.backgroundImage = `url(${randomCard.img})`;
-            }else if (usersRoundIndicater === 5) {
+            } else if (usersRoundIndicater === 5) {
                 right5.style.backgroundImage = `url(${randomCard.img})`;
-            }else if (usersRoundIndicater === 6) {
+            } else if (usersRoundIndicater === 6) {
                 right6.style.backgroundImage = `url(${randomCard.img})`;
-            }else if (usersRoundIndicater === 7) {
+            } else if (usersRoundIndicater === 7) {
                 right7.style.backgroundImage = `url(${randomCard.img})`;
-            }else if (usersRoundIndicater === 8) {
+            } else if (usersRoundIndicater === 8) {
                 right8.style.backgroundImage = `url(${randomCard.img})`;
-            }else if (usersRoundIndicater === 9) {
+            } else if (usersRoundIndicater === 9) {
                 right9.style.backgroundImage = `url(${randomCard.img})`;
-            }else if (usersRoundIndicater === 10) {
+            } else if (usersRoundIndicater === 10) {
                 right10.style.backgroundImage = `url(${randomCard.img})`;
             }
 
-        }else{
+        } else {
             alert("You ran out of money. Add more money to keep playing");
         }
     }
@@ -145,7 +145,7 @@ export function getCards(){
 
 
 //Adding money
-addMoneyBtn.addEventListener("click", addMoney) 
+addMoneyBtn.addEventListener("click", addMoney)
 function addMoney() {
     addMoneyInput = prompt("How much money would you like to add \n Just enter a number");
     addMoneyInput = parseInt(addMoneyInput);
@@ -154,20 +154,21 @@ function addMoney() {
 
 // pass Button, dealer gets cards
 passBtn.addEventListener('click', passToDealer);
-function passToDealer(){
+async function passToDealer() {
     console.log("pass");
     let dealersDeckOfCards;
-    while (dealersCardsTotalValue <= usersCardsTotalValue && dealersCardsTotalValue < 22 
-        && dealersCardsTotalValue !== 21){
-            dealersRoundIndicater++;
+
+    while (dealersCardsTotalValue <= usersCardsTotalValue && dealersCardsTotalValue < 22
+        && dealersCardsTotalValue !== 21) {
+        dealersRoundIndicater++;
 
 
-            if (dealersCardsTotalValue < 11) {
-                dealersDeckOfCards = dealersDeckOfCards11;
-            } 
-            if (dealersCardsTotalValue > 10) {
-                dealersDeckOfCards = dealersDeckOfCards1;
-            }
+        if (dealersCardsTotalValue < 11) {
+            dealersDeckOfCards = dealersDeckOfCards11;
+        }
+        if (dealersCardsTotalValue > 10) {
+            dealersDeckOfCards = dealersDeckOfCards1;
+        }
         //updating card and displaying card
         let randomCard = dealersDeckOfCards[Math.floor(Math.random() * dealersDeckOfCards.length)];
 
@@ -178,26 +179,27 @@ function passToDealer(){
             leftLeftCard.style.backgroundImage = `url(${randomCard.img})`;
         } else if (dealersRoundIndicater === 2) {
             leftCard.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (dealersRoundIndicater === 3) {
+        } else if (dealersRoundIndicater === 3) {
             left3.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (dealersRoundIndicater === 4) {
+        } else if (dealersRoundIndicater === 4) {
             left4.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (dealersRoundIndicater === 5) {
+        } else if (dealersRoundIndicater === 5) {
             left5.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (dealersRoundIndicater === 6) {
+        } else if (dealersRoundIndicater === 6) {
             left6.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (dealersRoundIndicater === 7) {
+        } else if (dealersRoundIndicater === 7) {
             left7.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (dealersRoundIndicater === 8) {
+        } else if (dealersRoundIndicater === 8) {
             left8.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (dealersRoundIndicater === 9) {
+        } else if (dealersRoundIndicater === 9) {
             left9.style.backgroundImage = `url(${randomCard.img})`;
-        }else if (dealersRoundIndicater === 10) {
+        } else if (dealersRoundIndicater === 10) {
             left10.style.backgroundImage = `url(${randomCard.img})`;
         }
 
-    } if (dealersCardsTotalValue > 21 && usersCardsTotalValue < 22){
-        alert("you WON!");
+    }
+    if (dealersCardsTotalValue > 21 && usersCardsTotalValue < 22) {
+        setTimeout(() => {alert("you WON!")}, 100);
         userWon = true;
         // this is not prefered, upgrade this change wallet
         changeWallet(parseInt(currentBetEl.innerText) * 2, 0);
@@ -205,16 +207,16 @@ function passToDealer(){
         disableHitAndPassButton()
         enableBetButton()
         statusText.innerText = "Place bet to start playing!"
-    } else if (dealersCardsTotalValue === usersCardsTotalValue && usersCardsTotalValue < 22){
-        alert("It's a TIE!");
+    } else if (dealersCardsTotalValue === usersCardsTotalValue && usersCardsTotalValue <= 21) {
+        setTimeout(() => {alert("It's a TIE!")}, 100);
         userWon = true;
         changeWallet(parseInt(currentBetEl.innerText), 0);
         currentBetEl.innerText = '0';
         disableHitAndPassButton()
         enableBetButton()
         statusText.innerText = "Place bet to start playing!"
-    }else {
-        alert("You Lost!");
+    } else {
+        setTimeout(() => {alert("You Lost!")}, 100);
         userWon = false;
         // setTimeout(resetCards, 3000)
         currentBetEl.innerText = '0';
