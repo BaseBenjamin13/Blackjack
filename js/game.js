@@ -41,7 +41,9 @@ let left9 = document.getElementById("left-9");
 let left10 = document.getElementById("left-10");
 
 
-
+let cards = deckOfCards;
+let dealersCards1 = dealersDeckOfCards1;
+let dealersCards11 = dealersDeckOfCards11;
 export let walletNum = 500;
 let usersCardsTotalValue = 0;
 let dealersCardsTotalValue = 0;
@@ -79,12 +81,18 @@ export function getCards() {
             statusText.innerText = "Let's Play!"
 
             usersCards++;
-            let randomCard = deckOfCards[Math.floor(Math.random() * deckOfCards.length)];
+            let randomCard = cards[Math.floor(Math.random() * cards.length)];
             if (randomCard.name === 'Ace') {
-                aceInput = prompt("You got an Ace, how do you want to use it. \n\n   11 or 1");
-                aceInput = parseInt(aceInput);
-                randomCard.num = aceInput;
+                // aceInput = prompt("You got an Ace, how do you want to use it. \n\n   11 or 1");
+                // aceInput = parseInt(aceInput);
+                // randomCard.num = aceInput;
+                if (usersCardsTotalValue < 11) {
+                    randomCard.num = 11;
+                }else if (dealersCardsTotalValue > 10) {
+                    randomCard.num = 1;
+                }
             }
+
             usersCardsTotalValue += randomCard.num;
             usersCardsTotalValueEl.innerText = usersCardsTotalValue;
 
@@ -128,6 +136,11 @@ export function getCards() {
                 right10.style.backgroundImage = `url(${randomCard.img})`;
             }
 
+            const index = cards.indexOf(randomCard);
+            if (index > -1) {
+                cards.splice(index, 1);
+            }
+
         } else {
             alert("You ran out of money. Add more money to keep playing");
         }
@@ -155,10 +168,10 @@ async function passToDealer() {
 
 
         if (dealersCardsTotalValue < 11) {
-            dealersDeckOfCards = dealersDeckOfCards11;
+            dealersDeckOfCards = dealersCards11;
         }
         if (dealersCardsTotalValue > 10) {
-            dealersDeckOfCards = dealersDeckOfCards1;
+            dealersDeckOfCards = dealersCards1;
         }
         //updating card and displaying card
         let randomCard = dealersDeckOfCards[Math.floor(Math.random() * dealersDeckOfCards.length)];
@@ -186,6 +199,11 @@ async function passToDealer() {
             left9.style.backgroundImage = `url(${randomCard.img})`;
         } else if (dealersRoundIndicater === 10) {
             left10.style.backgroundImage = `url(${randomCard.img})`;
+        }
+
+        const index = dealersDeckOfCards.indexOf(randomCard);
+        if (index > -1) {
+            dealersDeckOfCards.splice(index, 1);
         }
 
     }
