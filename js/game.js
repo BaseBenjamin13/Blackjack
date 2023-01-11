@@ -138,6 +138,10 @@ export function getCards() {
                 right10.style.backgroundImage = `url(${randomCard.img})`;
             }
 
+            if(usersCardsTotalValue === 21) {
+                passToDealer()
+            }
+
             const index = cards.indexOf(randomCard);
             if (index > -1) {
                 cards.splice(index, 1);
