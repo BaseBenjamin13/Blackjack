@@ -81,11 +81,13 @@ export function getCards() {
             statusText.innerText = "Let's Play!"
 
             usersCards++;
-            let randomCard = cards[Math.floor(Math.random() * cards.length)];
+            let randomCard
+            while (!randomCard){
+                randomCard = cards[Math.floor(Math.random() * cards.length)];
+            }
             if (randomCard.name === 'Ace') {
                 // aceInput = prompt("You got an Ace, how do you want to use it. \n\n   11 or 1");
                 // aceInput = parseInt(aceInput);
-                // randomCard.num = aceInput;
                 if (usersCardsTotalValue < 11) {
                     randomCard.num = 11;
                 }else if (dealersCardsTotalValue > 10) {
@@ -203,7 +205,10 @@ async function passToDealer() {
 
         const index = dealersDeckOfCards.indexOf(randomCard);
         if (index > -1) {
-            dealersDeckOfCards.splice(index, 1);
+            dealersCards11.splice(index, 1);
+        }
+        if (index > -1) {
+            dealersCards1.splice(index, 1);
         }
 
     }

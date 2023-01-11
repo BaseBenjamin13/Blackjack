@@ -66,10 +66,10 @@ export let deckOfCards = [
     {name: 'King', suit: 'Diamonds', num: 10, img: 'imgs/king_of_diamonds.png'},
     {name: 'King', suit: 'Spades', num: 10, img: 'imgs/king_of_spades.png'},
     //ace's
-    {name: 'Ace', suit: 'Hearts', num: aceInput, img: 'imgs/ace_of_hearts.png'},
-    {name: 'Ace', suit: 'Clubs', num: aceInput, img: 'imgs/ace_of_clubs.png'},
-    {name: 'Ace', suit: 'Diamonds', num: aceInput, img: 'imgs/ace_of_diamonds.png'},
-    {name: 'Ace', suit: 'Spades', num: aceInput, img: 'imgs/ace_of_spades.png'},
+    {name: 'Ace', suit: 'Hearts', num: 1, img: 'imgs/ace_of_hearts.png'},
+    {name: 'Ace', suit: 'Clubs', num: 1, img: 'imgs/ace_of_clubs.png'},
+    {name: 'Ace', suit: 'Diamonds', num: 1, img: 'imgs/ace_of_diamonds.png'},
+    {name: 'Ace', suit: 'Spades', num: 1, img: 'imgs/ace_of_spades.png'},
 ];
 
 
